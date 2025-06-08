@@ -1,4 +1,4 @@
-import { useIndex } from '@/context/useIndex';
+import { useIndex } from '@/context/index';
 
 function Tonic() {
 	const { tonic, handleTonicChange, getNote } = useIndex();

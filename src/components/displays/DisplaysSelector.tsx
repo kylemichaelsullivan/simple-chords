@@ -1,4 +1,4 @@
-import { useIndex } from '@/context/useIndex';
+import { useIndex } from '@/context/index';
 import { allDisplays } from '@/lookups/Displays';
 
 import DisplaySelector from './DisplaySelector';

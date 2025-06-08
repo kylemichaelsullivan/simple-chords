@@ -1,4 +1,4 @@
-import { useIndex } from '@/context/useIndex';
+import { useIndex } from '@/context/index';
 
 function Notes() {
 	const { notes, getNote, chordName, noteCount } = useIndex();

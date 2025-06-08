@@ -1,10 +1,10 @@
-import { useState, useEffect, createContext, useCallback, useMemo } from 'react';
+import { useState, useEffect, createContext, useCallback, useMemo, useContext } from 'react';
 
 import { Flats, Sharps, Intervals, Frequencies } from '@/lookups/Notes';
 import { CHORD_INFO } from '@/lookups/Chords';
 
-import type { IndexContextType, IndexContextProviderProps } from './types';
 import type { Chord_Tonic, Chord_Variant, Chord_UsingFlats, Displays_Icon } from '@/types';
+import type { IndexContextType, IndexContextProviderProps } from './types';
 
 export const IndexContext = createContext<IndexContextType | undefined>(undefined);
 
@@ -14,7 +14,15 @@ const initialUsingFlats: Chord_UsingFlats = true;
 const initialDisplays: Displays_Icon[] = ['keyboard', 'guitar', 'ukelele', 'mandolin'];
 const initialShowNoteLabels = true;
 
-export const IndexContextProvider = ({ children }: IndexContextProviderProps) => {
+export const useIndex = () => {
+	const context = useContext(IndexContext);
+	if (context === undefined) {
+		throw new Error('useIndex must be used within an IndexContextProvider');
+	}
+	return context;
+};
+
+const IndexContextProvider = ({ children }: IndexContextProviderProps) => {
 	const [tonic, setTonic] = useState<Chord_Tonic>(initialTonic);
 	const [variant, setVariant] = useState<Chord_Variant>(initialVariant);
 	const [usingFlats, setUsingFlats] = useState<Chord_UsingFlats>(() => {
@@ -205,3 +213,5 @@ export const IndexContextProvider = ({ children }: IndexContextProviderProps) =>
 
 	return <IndexContext.Provider value={contextValue}>{children}</IndexContext.Provider>;
 };
+
+export default IndexContextProvider;

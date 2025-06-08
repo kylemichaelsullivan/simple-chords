@@ -1,4 +1,4 @@
-import { useIndex } from '@/context/useIndex';
+import { useIndex } from '@/context/index';
 
 function UsingFlats() {
 	const { usingFlats, toggleUsingFlats } = useIndex();

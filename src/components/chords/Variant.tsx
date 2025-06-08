@@ -1,4 +1,4 @@
-import { useIndex } from '@/context/useIndex';
+import { useIndex } from '@/context/index';
 
 import { CHORD_INFO } from '@/lookups/Chords';
 
