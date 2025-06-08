@@ -1,0 +1,211 @@
+import { useState, useEffect, createContext, useCallback, useMemo } from 'react';
+
+import { Flats, Sharps, Intervals, Frequencies } from '@/lookups/Notes';
+import { CHORD_INFO } from '@/lookups/Chords';
+
+import type { IndexContextType, IndexContextProviderProps } from './types';
+import type { Chord_Tonic, Chord_Variant, Chord_UsingFlats, Displays_Icon } from '@/types';
+
+export const IndexContext = createContext<IndexContextType | undefined>(undefined);
+
+const initialTonic: Chord_Tonic = 0;
+const initialVariant: Chord_Variant = 'major';
+const initialUsingFlats: Chord_UsingFlats = true;
+const initialDisplays: Displays_Icon[] = ['keyboard', 'guitar', 'ukelele', 'mandolin'];
+const initialShowNoteLabels = true;
+
+export const IndexContextProvider = ({ children }: IndexContextProviderProps) => {
+	const [tonic, setTonic] = useState<Chord_Tonic>(initialTonic);
+	const [variant, setVariant] = useState<Chord_Variant>(initialVariant);
+	const [usingFlats, setUsingFlats] = useState<Chord_UsingFlats>(() => {
+		const savedUsingFlats = localStorage.getItem('usingFlats');
+		return savedUsingFlats ? JSON.parse(savedUsingFlats) : initialUsingFlats;
+	});
+	const [notes, setNotes] = useState<Chord_Tonic[]>([tonic]);
+	const [displays, setDisplays] = useState<Displays_Icon[]>(() => {
+		const savedDisplays = localStorage.getItem('selectedDisplays');
+		return savedDisplays ? JSON.parse(savedDisplays) : initialDisplays;
+	});
+	const [notePlaying, setNotePlaying] = useState<boolean>(false);
+	const [showNoteLabels, setShowNoteLabels] = useState<boolean>(() => {
+		const savedShowNoteLabels = localStorage.getItem('showNoteLabels');
+		return savedShowNoteLabels ? JSON.parse(savedShowNoteLabels) : initialShowNoteLabels;
+	});
+	const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
+
+	const handleTonicChange = useCallback((tonic: Chord_Tonic) => {
+		setTonic(tonic);
+	}, []);
+
+	const handleVariantChange = useCallback((variant: Chord_Variant) => {
+		setVariant(variant);
+	}, []);
+
+	const handleDisplaysClick = useCallback((icon: Displays_Icon) => {
+		setDisplays(prev => {
+			const newDisplays =
+				prev.includes(icon) ? prev.filter(item => item !== icon) : [...prev, icon];
+			localStorage.setItem('selectedDisplays', JSON.stringify(newDisplays));
+			return newDisplays;
+		});
+	}, []);
+
+	const toggleUsingFlats = useCallback(() => {
+		setUsingFlats(prev => {
+			const newValue = !prev;
+			localStorage.setItem('usingFlats', JSON.stringify(newValue));
+			return newValue;
+		});
+	}, []);
+
+	const toggleShowNoteLabels = useCallback(() => {
+		setShowNoteLabels(prev => {
+			const newValue = !prev;
+			localStorage.setItem('showNoteLabels', JSON.stringify(newValue));
+			return newValue;
+		});
+	}, []);
+
+	const capitalizeFirstLetter = useCallback((string: string) => {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}, []);
+
+	const currentScale = useMemo(() => {
+		return usingFlats ? Flats : Sharps;
+	}, [usingFlats]);
+
+	const currentIntervals = useMemo(() => {
+		return Intervals[variant];
+	}, [variant]);
+
+	const getFrequency = useCallback((note: number) => {
+		return Frequencies[note];
+	}, []);
+
+	const playNote = useCallback(
+		(note: number) => {
+			if (!audioContext || notePlaying) return;
+
+			const oscillator = audioContext.createOscillator();
+			oscillator.type = 'sine';
+			oscillator.frequency.value = getFrequency(note);
+			oscillator.connect(audioContext.destination);
+
+			oscillator.start();
+			setNotePlaying(true);
+
+			setTimeout(() => {
+				oscillator.stop();
+				oscillator.disconnect();
+				setNotePlaying(false);
+			}, 1000);
+		},
+		[audioContext, getFrequency, notePlaying]
+	);
+
+	const reset = useCallback(() => {
+		setTonic(initialTonic);
+		setVariant(initialVariant);
+	}, []);
+
+	const getNote = useCallback(
+		(note: number) => {
+			return currentScale[note];
+		},
+		[currentScale]
+	);
+
+	const makeScale = useCallback((tonic: Chord_Tonic, variant: Chord_Variant) => {
+		const scaleNotes: Chord_Tonic[] = [tonic];
+		const intervals = Intervals[variant];
+		let currentNote = tonic;
+
+		intervals.forEach(interval => {
+			currentNote = (currentNote + interval * 2) % 12;
+			scaleNotes.push(currentNote);
+		});
+
+		setNotes(scaleNotes);
+	}, []);
+
+	useEffect(() => {
+		const context = new AudioContext();
+		setAudioContext(context);
+		return () => {
+			context.close();
+		};
+	}, []);
+
+	useEffect(() => {
+		makeScale(tonic, variant);
+	}, [tonic, variant, makeScale]);
+
+	useEffect(() => {
+		const handleKeyUp = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') {
+				reset();
+			}
+		};
+
+		window.addEventListener('keyup', handleKeyUp);
+
+		return () => {
+			window.removeEventListener('keyup', handleKeyUp);
+		};
+	}, [reset]);
+
+	const chordName = useMemo(() => {
+		const note = getNote(tonic);
+		const chordInfo = CHORD_INFO[variant];
+		return `${note}${chordInfo.symbol}`;
+	}, [tonic, variant, getNote]);
+
+	const noteCount = useMemo(() => {
+		return Intervals[variant].length + 1;
+	}, [variant]);
+
+	const contextValue = useMemo(
+		() => ({
+			tonic,
+			variant,
+			usingFlats,
+			notes,
+			displays,
+			showNoteLabels,
+			chordName,
+			noteCount,
+			handleTonicChange,
+			handleVariantChange,
+			handleDisplaysClick,
+			toggleUsingFlats,
+			toggleShowNoteLabels,
+			capitalizeFirstLetter,
+			getNote,
+			makeScale,
+			playNote,
+			reset,
+		}),
+		[
+			tonic,
+			variant,
+			usingFlats,
+			notes,
+			displays,
+			showNoteLabels,
+			chordName,
+			noteCount,
+			handleTonicChange,
+			handleVariantChange,
+			handleDisplaysClick,
+			toggleUsingFlats,
+			toggleShowNoteLabels,
+			capitalizeFirstLetter,
+			getNote,
+			makeScale,
+			playNote,
+			reset,
+		]
+	);
+
+	return <IndexContext.Provider value={contextValue}>{children}</IndexContext.Provider>;
+};
