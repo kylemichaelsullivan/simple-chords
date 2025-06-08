@@ -74,10 +74,6 @@ export const IndexContextProvider = ({ children }: IndexContextProviderProps) =>
 		return usingFlats ? Flats : Sharps;
 	}, [usingFlats]);
 
-	const currentIntervals = useMemo(() => {
-		return Intervals[variant];
-	}, [variant]);
-
 	const getFrequency = useCallback((note: number) => {
 		return Frequencies[note];
 	}, []);
