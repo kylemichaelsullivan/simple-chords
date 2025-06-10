@@ -10,6 +10,24 @@ select {
 	cursor: pointer;
 }
 
+.Chord .useFlat,
+.ChordName .useFlat,
+.ChordName > span:has(+ .useFlat) {
+	letter-spacing: -0.1875em;
+}
+
+.ChordName .useFlat {
+	letter-spacing: -0.1875em;
+}
+
+.ChordName .number {
+	letter-spacing: 0.05em;
+}
+
+.ChordNotes .useFlat {
+	letter-spacing: -0.25em;
+}
+
 .DisplaysSelector .inactive {
 	color: transparent;
 	text-shadow: 0 0 0 grey;

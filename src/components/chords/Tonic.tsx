@@ -3,9 +3,13 @@ import { useIndex } from '@/context/index';
 function Tonic() {
 	const { tonic, handleTonicChange, getNote } = useIndex();
 
+	const note = getNote(tonic);
+	const hasFlat = note.includes('♭');
+	const hasSharp = note.includes('♯');
+
 	return (
 		<select
-			className='Tonic flex-1 min-w-14 rounded-none border border-slate-500 px-1 hover:ring-1'
+			className={`Tonic flex-1 min-w-14 rounded-none border border-slate-500 px-1 hover:ring-1${hasFlat ? ' hasFlat' : ''}${hasSharp ? ' hasSharp' : ''}`}
 			value={tonic}
 			onChange={e => handleTonicChange(+e.target.value)}
 		>
