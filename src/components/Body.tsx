@@ -1,7 +1,7 @@
-import Chord from './chords/Chord';
-import Notes from './notes/Notes';
-import DisplaysSelector from './displays/DisplaysSelector';
-import Displays from './displays/Displays';
+import Chord from '@/components/chords/Chord';
+import Notes from '@/components/notes/Notes';
+import DisplaysSelector from '@/components/displays/DisplaysSelector';
+import Displays from '@/components/displays/Displays';
 
 function Body() {
 	return (
