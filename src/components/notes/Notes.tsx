@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { useIndex } from '@/context/index';
+import { useIndex } from '@/hooks/useIndex';
 
 import ChordName from './ChordName';
 import ChordNotes from './ChordNotes';

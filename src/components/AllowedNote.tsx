@@ -1,4 +1,4 @@
-import { useIndex } from '@/context/index';
+import { useIndex } from '@/hooks/useIndex';
 
 type AllowedNoteProps = {
 	note: string;

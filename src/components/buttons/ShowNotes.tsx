@@ -1,4 +1,4 @@
-import { useIndex } from '@/context/index';
+import { useIndex } from '@/hooks/useIndex';
 
 function ShowNotes() {
 	const { showNoteLabels, toggleShowNoteLabels } = useIndex();
