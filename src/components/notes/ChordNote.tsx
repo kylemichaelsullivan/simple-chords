@@ -4,7 +4,6 @@ import { useIndex } from '@/hooks/useIndex';
 
 type ChordNoteProps = {
 	note: number;
-	index: number;
 };
 
 const ChordNote = memo(function ChordNote({ note }: ChordNoteProps) {

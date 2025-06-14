@@ -1,12 +1,12 @@
-import { useState, useEffect, createContext, useCallback, useMemo, useContext } from 'react';
+import { useState, useEffect, createContext, useCallback, useMemo } from 'react';
 
-import { Flats, Sharps, Intervals, Frequencies } from '@/lookups/Notes';
-import { CHORD_INFO } from '@/lookups/Chords';
+import { Flats, Sharps, Frequencies } from '@/lookups/Notes';
+import { getChordInfo } from '@/lookups/Chords';
 
 import type { Chord_Tonic, Chord_Variant, Chord_UsingFlats, Displays_Icon } from '@/types';
 import type { IndexContextType, IndexContextProviderProps } from './types';
 
-export const IndexContext = createContext<IndexContextType | undefined>(undefined);
+const IndexContext = createContext<IndexContextType | undefined>(undefined);
 
 const initialTonic: Chord_Tonic = 0;
 const initialVariant: Chord_Variant = 'major';
@@ -14,15 +14,7 @@ const initialUsingFlats: Chord_UsingFlats = true;
 const initialDisplays: Displays_Icon[] = ['keyboard', 'guitar', 'ukelele', 'mandolin'];
 const initialShowNoteLabels = true;
 
-export const useIndex = () => {
-	const context = useContext(IndexContext);
-	if (context === undefined) {
-		throw new Error('useIndex must be used within an IndexContextProvider');
-	}
-	return context;
-};
-
-const IndexContextProvider = ({ children }: IndexContextProviderProps) => {
+function IndexContextProvider({ children }: IndexContextProviderProps) {
 	const [tonic, setTonic] = useState<Chord_Tonic>(initialTonic);
 	const [variant, setVariant] = useState<Chord_Variant>(initialVariant);
 	const [usingFlats, setUsingFlats] = useState<Chord_UsingFlats>(() => {
@@ -121,10 +113,10 @@ const IndexContextProvider = ({ children }: IndexContextProviderProps) => {
 
 	const makeScale = useCallback((tonic: Chord_Tonic, variant: Chord_Variant) => {
 		const scaleNotes: Chord_Tonic[] = [tonic];
-		const intervals = Intervals[variant];
+		const chordInfo = getChordInfo(variant);
 		let currentNote = tonic;
 
-		intervals.forEach(interval => {
+		chordInfo.intervals.forEach(interval => {
 			currentNote = (currentNote + interval * 2) % 12;
 			scaleNotes.push(currentNote);
 		});
@@ -160,12 +152,13 @@ const IndexContextProvider = ({ children }: IndexContextProviderProps) => {
 
 	const chordName = useMemo(() => {
 		const note = getNote(tonic);
-		const chordInfo = CHORD_INFO[variant];
+		const chordInfo = getChordInfo(variant);
 		return `${note}${chordInfo.symbol}`;
 	}, [tonic, variant, getNote]);
 
 	const noteCount = useMemo(() => {
-		return Intervals[variant].length + 1;
+		const chordInfo = getChordInfo(variant);
+		return chordInfo.intervals.length + 1;
 	}, [variant]);
 
 	const contextValue = useMemo(
@@ -212,6 +205,6 @@ const IndexContextProvider = ({ children }: IndexContextProviderProps) => {
 	);
 
 	return <IndexContext.Provider value={contextValue}>{children}</IndexContext.Provider>;
-};
+}
 
-export default IndexContextProvider;
+export { IndexContext, IndexContextProvider };

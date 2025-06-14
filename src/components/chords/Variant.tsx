@@ -1,22 +1,27 @@
-import { useIndex } from '@/context/index';
+import { CHORDS } from '@/lookups/Chords';
 
-import { CHORD_INFO } from '@/lookups/Chords';
+import type { Chord_Variant } from '@/types';
 
-import { Chord_Variant } from '@/types';
+type VariantProps = {
+	variant: Chord_Variant;
+	onChange: (variant: Chord_Variant) => void;
+};
 
-function Variant() {
-	const { variant, handleVariantChange } = useIndex();
-
+function Variant({ variant, onChange }: VariantProps) {
 	return (
 		<select
-			className='Variant flex-auto min-w-16 rounded-none border border-slate-500 px-1 hover:ring-1'
+			className='w-full rounded-none border border-slate-500 px-1 hover:ring-1'
 			value={variant}
-			onChange={e => handleVariantChange(e.target.value as Chord_Variant)}
+			onChange={e => onChange(e.target.value as Chord_Variant)}
 		>
-			{Object.keys(CHORD_INFO).map(variantOption => (
-				<option key={variantOption} value={variantOption}>
-					{CHORD_INFO[variantOption as Chord_Variant].display}
-				</option>
+			{Object.entries(CHORDS).map(([groupName, group]) => (
+				<optgroup key={groupName} label={groupName}>
+					{Object.entries(group).map(([variantKey, info]) => (
+						<option key={variantKey} value={variantKey}>
+							{info.display}
+						</option>
+					))}
+				</optgroup>
 			))}
 		</select>
 	);
