@@ -154,9 +154,9 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 		const note = getNote(tonic);
 		const chordInfo = getChordInfo(variant);
 		if (variant === 'major') {
-			return note;
+			return showNerdMode ? note : `${note}△`;
 		}
-		const symbol = getChordSymbol(chordInfo.symbol, !showNerdMode);
+		const symbol = getChordSymbol(chordInfo.symbol, showNerdMode);
 		return `${note}${symbol}`;
 	}, [tonic, variant, getNote, showNerdMode]);
 
