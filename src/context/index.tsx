@@ -12,7 +12,6 @@ const initialTonic: Chord_Tonic = 0;
 const initialVariant: Chord_Variant = 'major';
 const initialUsingFlats: Chord_UsingFlats = true;
 const initialDisplays: Displays_Icon[] = ['keyboard', 'guitar', 'ukelele', 'mandolin'];
-const initialShowNoteLabels = true;
 const initialShowNerdMode = true;
 
 function IndexContextProvider({ children }: IndexContextProviderProps) {
@@ -28,10 +27,6 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 		return savedDisplays ? JSON.parse(savedDisplays) : initialDisplays;
 	});
 	const [notePlaying, setNotePlaying] = useState<boolean>(false);
-	const [showNoteLabels, setShowNoteLabels] = useState<boolean>(() => {
-		const savedShowNoteLabels = localStorage.getItem('showNoteLabels');
-		return savedShowNoteLabels ? JSON.parse(savedShowNoteLabels) : initialShowNoteLabels;
-	});
 	const [showNerdMode, setShowNerdMode] = useState<boolean>(() => {
 		const savedShowNerdMode = localStorage.getItem('showNerdMode');
 		return savedShowNerdMode ? JSON.parse(savedShowNerdMode) : initialShowNerdMode;
@@ -59,14 +54,6 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 		setUsingFlats(prev => {
 			const newValue = !prev;
 			localStorage.setItem('usingFlats', JSON.stringify(newValue));
-			return newValue;
-		});
-	}, []);
-
-	const toggleShowNoteLabels = useCallback(() => {
-		setShowNoteLabels(prev => {
-			const newValue = !prev;
-			localStorage.setItem('showNoteLabels', JSON.stringify(newValue));
 			return newValue;
 		});
 	}, []);
@@ -185,7 +172,6 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 			usingFlats,
 			notes,
 			displays,
-			showNoteLabels,
 			showNerdMode,
 			chordName,
 			noteCount,
@@ -193,7 +179,6 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 			handleVariantChange,
 			handleDisplaysClick,
 			toggleUsingFlats,
-			toggleShowNoteLabels,
 			toggleShowNerdMode,
 			capitalizeFirstLetter,
 			getNote,
@@ -207,7 +192,6 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 			usingFlats,
 			notes,
 			displays,
-			showNoteLabels,
 			showNerdMode,
 			chordName,
 			noteCount,
@@ -215,7 +199,6 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 			handleVariantChange,
 			handleDisplaysClick,
 			toggleUsingFlats,
-			toggleShowNoteLabels,
 			toggleShowNerdMode,
 			capitalizeFirstLetter,
 			getNote,
