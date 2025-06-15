@@ -1,7 +1,7 @@
 import { useState, useEffect, createContext, useCallback, useMemo } from 'react';
 
 import { Flats, Sharps, Frequencies } from '@/lookups/Notes';
-import { getChordInfo } from '@/lookups/Chords';
+import { getChordInfo, getChordSymbol } from '@/lookups/Chords';
 
 import type { Chord_Tonic, Chord_Variant, Chord_UsingFlats, Displays_Icon } from '@/types';
 import type { IndexContextType, IndexContextProviderProps } from './types';
@@ -13,6 +13,7 @@ const initialVariant: Chord_Variant = 'major';
 const initialUsingFlats: Chord_UsingFlats = true;
 const initialDisplays: Displays_Icon[] = ['keyboard', 'guitar', 'ukelele', 'mandolin'];
 const initialShowNoteLabels = true;
+const initialShowNerdMode = true;
 
 function IndexContextProvider({ children }: IndexContextProviderProps) {
 	const [tonic, setTonic] = useState<Chord_Tonic>(initialTonic);
@@ -30,6 +31,10 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 	const [showNoteLabels, setShowNoteLabels] = useState<boolean>(() => {
 		const savedShowNoteLabels = localStorage.getItem('showNoteLabels');
 		return savedShowNoteLabels ? JSON.parse(savedShowNoteLabels) : initialShowNoteLabels;
+	});
+	const [showNerdMode, setShowNerdMode] = useState<boolean>(() => {
+		const savedShowNerdMode = localStorage.getItem('showNerdMode');
+		return savedShowNerdMode ? JSON.parse(savedShowNerdMode) : initialShowNerdMode;
 	});
 	const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
 
@@ -62,6 +67,14 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 		setShowNoteLabels(prev => {
 			const newValue = !prev;
 			localStorage.setItem('showNoteLabels', JSON.stringify(newValue));
+			return newValue;
+		});
+	}, []);
+
+	const toggleShowNerdMode = useCallback(() => {
+		setShowNerdMode(prev => {
+			const newValue = !prev;
+			localStorage.setItem('showNerdMode', JSON.stringify(newValue));
 			return newValue;
 		});
 	}, []);
@@ -153,8 +166,12 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 	const chordName = useMemo(() => {
 		const note = getNote(tonic);
 		const chordInfo = getChordInfo(variant);
-		return `${note}${chordInfo.symbol}`;
-	}, [tonic, variant, getNote]);
+		if (variant === 'major') {
+			return note;
+		}
+		const symbol = getChordSymbol(chordInfo.symbol, !showNerdMode);
+		return `${note}${symbol}`;
+	}, [tonic, variant, getNote, showNerdMode]);
 
 	const noteCount = useMemo(() => {
 		const chordInfo = getChordInfo(variant);
@@ -169,6 +186,7 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 			notes,
 			displays,
 			showNoteLabels,
+			showNerdMode,
 			chordName,
 			noteCount,
 			handleTonicChange,
@@ -176,6 +194,7 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 			handleDisplaysClick,
 			toggleUsingFlats,
 			toggleShowNoteLabels,
+			toggleShowNerdMode,
 			capitalizeFirstLetter,
 			getNote,
 			makeScale,
@@ -189,6 +208,7 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 			notes,
 			displays,
 			showNoteLabels,
+			showNerdMode,
 			chordName,
 			noteCount,
 			handleTonicChange,
@@ -196,6 +216,7 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 			handleDisplaysClick,
 			toggleUsingFlats,
 			toggleShowNoteLabels,
+			toggleShowNerdMode,
 			capitalizeFirstLetter,
 			getNote,
 			makeScale,

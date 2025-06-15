@@ -1,11 +1,11 @@
-import ShowNotes from './buttons/ShowNotes';
-import UsingFlats from './buttons/UsingFlats';
+import ShowNerd from './buttons/ShowNerd';
 import Title from './Title';
+import UsingFlats from './buttons/UsingFlats';
 
 function Header() {
 	return (
 		<header className='Header relative flex h-12 items-center justify-center'>
-			<ShowNotes />
+			<ShowNerd />
 			<UsingFlats />
 			<Title title='Simple Chords' />
 		</header>

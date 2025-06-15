@@ -14,7 +14,7 @@ export type IndexContextType = {
 	usingFlats: Chord_UsingFlats;
 	notes: number[];
 	displays: Displays_Icon[];
-	showNoteLabels: boolean;
+	showNerdMode: boolean;
 	chordName: string;
 	noteCount: Chord_NoteCount;
 	handleTonicChange: (tonic: number) => void;
@@ -22,7 +22,7 @@ export type IndexContextType = {
 	handleDisplaysClick: (icon: Displays_Icon) => void;
 	capitalizeFirstLetter: (string: string) => string;
 	toggleUsingFlats: () => void;
-	toggleShowNoteLabels: () => void;
+	toggleShowNerdMode: () => void;
 	getNote: (note: number) => string;
 	makeScale: (tonic: Chord_Tonic, variant: Chord_Variant) => void;
 	playNote: (note: number) => void;
