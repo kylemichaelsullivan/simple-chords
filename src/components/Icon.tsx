@@ -14,10 +14,10 @@ const iconMap = {
 
 type IconName = keyof typeof iconMap;
 
-interface IconProps {
+type IconProps = {
 	name: IconName;
 	className?: string;
-}
+};
 
 export default function Icon({ name, className = '' }: IconProps) {
 	return <img src={iconMap[name]} alt={name} className={className} />;

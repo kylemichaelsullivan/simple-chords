@@ -1,12 +1,12 @@
 import { Displays_Icon } from '@/types';
 import Icon, { type IconName } from '../Icon';
 
-interface DisplaySelectorProps {
+type DisplaySelectorProps = {
 	icon: string;
 	text: string;
 	isActive: boolean;
 	onClick: (icon: Displays_Icon) => void;
-}
+};
 
 function DisplaySelector({ icon, text, isActive, onClick }: DisplaySelectorProps) {
 	return (
