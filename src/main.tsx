@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { IndexContextProvider } from '@/context';
+import IndexContextProvider from '@/context';
 
 import App from '@/components/App';
 
