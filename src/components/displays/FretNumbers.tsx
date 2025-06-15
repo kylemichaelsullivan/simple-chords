@@ -1,5 +1,5 @@
 function FretNumbers() {
-	const dottedFretIndexes = [0, 2, 4, 6, 8];
+	const dottedFretIndexes = [2, 4, 6, 8];
 
 	return (
 		<div className='FretNumbers flex w-full justify-evenly bg-orange-300'>
