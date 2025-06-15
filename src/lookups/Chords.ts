@@ -28,10 +28,10 @@ export const CHORDS: Record<string, ChordGroup> = {
 		'dominant-7': { symbol: '7', display: 'Dominant 7 (7)', intervals: [2, 1.5, 1.5] },
 		'major-7': { symbol: 'maj7', display: 'Major 7', intervals: [2, 1.5, 2] },
 		'minor-7': { symbol: 'm7', display: 'Minor 7', intervals: [1.5, 2, 1.5] },
-		'minor-major-7': { symbol: 'mM7', display: 'Minor Major 7', intervals: [1.5, 2, 2] },
+		'minor-major-7': { symbol: 'm(maj7)', display: 'Minor Major 7', intervals: [1.5, 2, 2] },
 		'half-diminished-7': {
 			symbol: 'ø7',
-			display: 'Half Diminished 7 (ø7)',
+			display: 'Half Diminished (ø)',
 			intervals: [1.5, 1.5, 2],
 		},
 		'diminished-7': { symbol: 'dim7', display: 'Diminished 7 (dim7)', intervals: [1.5, 1.5, 1.5] },
