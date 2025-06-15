@@ -30,7 +30,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 		'minor-7': { symbol: 'm7', display: 'Minor 7', intervals: [1.5, 2, 1.5] },
 		'minor-major-7': { symbol: 'm(maj7)', display: 'Minor Major 7', intervals: [1.5, 2, 2] },
 		'half-diminished-7': {
-			symbol: 'ø7',
+			symbol: 'ø',
 			display: 'Half Diminished',
 			intervals: [1.5, 1.5, 2],
 		},
@@ -182,6 +182,36 @@ export const CHORDS: Record<string, ChordGroup> = {
 	},
 } as const;
 
+const escapeRegExp = (string: string) => {
+	return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+};
+
+const CHORD_SYMBOL_MAP = {
+	verbose: {
+		maj7: '△7',
+		maj9: '△9',
+		maj11: '△11',
+		maj13: '△13',
+		maj: '△',
+		dim: '°',
+		aug: '\\+',
+		ø: 'ø',
+		M: '△',
+		m: '–',
+	},
+	concise: {
+		'△7': 'maj7',
+		'△9': 'maj9',
+		'△11': 'maj11',
+		'△13': 'maj13',
+		'△': 'maj',
+		'°': 'dim',
+		'\\+': 'aug',
+		ø: 'ø',
+		'-': 'm',
+	},
+} as const;
+
 export const getChordInfo = (variant: Chord_Variant): ChordData => {
 	for (const group of Object.values(CHORDS)) {
 		if (variant in group) {
@@ -203,29 +233,17 @@ export const getChordInfo = (variant: Chord_Variant): ChordData => {
 };
 
 export const getChordSymbol = (symbol: string, isNerdMode: boolean): string => {
-	if (!isNerdMode) {
-		return symbol
-			.replace('△7', 'maj7')
-			.replace('△9', 'maj9')
-			.replace('△11', 'maj11')
-			.replace('△13', 'maj13')
-			.replace('△', 'maj')
-			.replace('°', 'dim')
-			.replace('+', 'aug')
-			.replace('ø', 'ø')
-			.replace('-', 'm');
+	const map = isNerdMode ? CHORD_SYMBOL_MAP.verbose : CHORD_SYMBOL_MAP.concise;
+
+	// Special case for standalone 'm' in verbose mode
+	if (isNerdMode && symbol === 'm') {
+		return '–';
 	}
-	return symbol
-		.replace('M', '△')
-		.replace('m', '-')
-		.replace('maj7', '△7')
-		.replace('maj9', '△9')
-		.replace('maj11', '△11')
-		.replace('maj13', '△13')
-		.replace('maj', '△')
-		.replace('dim', '°')
-		.replace('aug', '+')
-		.replace('ø', 'ø');
+
+	// Replace all known symbols
+	return Object.entries(map).reduce((result, [from, to]) => {
+		return result.replace(new RegExp(escapeRegExp(from), 'g'), to);
+	}, symbol);
 };
 
 export const getChordGroups = () => Object.keys(CHORDS);
