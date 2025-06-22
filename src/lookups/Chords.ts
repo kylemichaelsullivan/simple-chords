@@ -177,7 +177,19 @@ const escapeRegExp = (string: string) => {
 };
 
 const CHORD_SYMBOL_MAP = {
-	verbose: {
+	nerd: {
+		maj7: 'maj7',
+		maj9: 'maj9',
+		maj11: 'maj11',
+		maj13: 'maj13',
+		maj: 'maj',
+		dim: 'dim',
+		aug: 'aug',
+		ø: 'ø',
+		M: 'M',
+		m: 'm',
+	},
+	rad: {
 		maj7: '△7',
 		maj9: '△9',
 		maj11: '△11',
@@ -188,17 +200,6 @@ const CHORD_SYMBOL_MAP = {
 		ø: 'ø',
 		M: '△',
 		m: '–',
-	},
-	concise: {
-		'△7': 'maj7',
-		'△9': 'maj9',
-		'△11': 'maj11',
-		'△13': 'maj13',
-		'△': 'maj',
-		'°': 'dim',
-		'+': 'aug',
-		ø: 'ø',
-		'-': 'm',
 	},
 } as const;
 
@@ -223,14 +224,8 @@ export const getChordInfo = (variant: Chord_Variant): ChordData => {
 };
 
 export const getChordSymbol = (symbol: string, isNerdMode: boolean): string => {
-	const map = isNerdMode ? CHORD_SYMBOL_MAP.verbose : CHORD_SYMBOL_MAP.concise;
+	const map = isNerdMode ? CHORD_SYMBOL_MAP.nerd : CHORD_SYMBOL_MAP.rad;
 
-	// Special case for standalone 'm' in verbose mode
-	if (isNerdMode && symbol === 'm') {
-		return '–';
-	}
-
-	// Replace all known symbols
 	return Object.entries(map).reduce((result, [from, to]) => {
 		return result.replace(new RegExp(escapeRegExp(from), 'g'), to);
 	}, symbol);
