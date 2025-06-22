@@ -1,5 +1,3 @@
-import type { IconName } from '@/components/Icon';
-
 export type Notes_Flats =
 	| 'C'
 	| 'D♭'
@@ -174,4 +172,4 @@ export type ChordData = {
 export type ChordGroup = Record<string, ChordData>;
 
 export type Displays_Text = 'Piano' | 'Guitar' | 'Banjo' | 'Ukelele' | 'Mandolin';
-export type Displays_Icon = IconName;
+export type Displays_Icon = 'keyboard' | 'guitar' | 'banjo' | 'ukelele' | 'mandolin';

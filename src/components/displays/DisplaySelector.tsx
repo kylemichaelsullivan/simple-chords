@@ -1,5 +1,5 @@
 import { Displays_Icon } from '@/types';
-import Icon, { type IconName } from '../Icon';
+import Icon from '../Icon';
 
 type DisplaySelectorProps = {
 	icon: string;
@@ -18,7 +18,7 @@ function DisplaySelector({ icon, text, isActive, onClick }: DisplaySelectorProps
 			title={text}
 			onClick={() => onClick(icon as Displays_Icon)}
 		>
-			<Icon name={icon as IconName} className='h-6 w-6 sm:h-8 sm:w-8' />
+			<Icon name={icon as Displays_Icon} className='h-6 w-6 sm:h-8 sm:w-8' />
 			<span className='text-xs font-bold sm:text-sm'>{text}</span>
 		</button>
 	);

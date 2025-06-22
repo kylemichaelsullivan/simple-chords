@@ -1,12 +1,4 @@
-import type { Chord_Variant } from '@/types';
-
-export type ChordData = {
-	symbol: string;
-	display: string;
-	intervals: number[];
-};
-
-export type ChordGroup = Record<string, ChordData>;
+import type { Chord_Variant, ChordData, ChordGroup } from '@/types';
 
 export const CHORDS: Record<string, ChordGroup> = {
 	'Simple Triads': {

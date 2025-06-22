@@ -2,8 +2,7 @@ import { CHORDS, getChordSymbol } from '@/lookups/Chords';
 
 import { useIndex } from '@/hooks/useIndex';
 
-import type { Chord_Variant } from '@/types';
-import type { ChordData, ChordGroup } from '@/lookups/Chords';
+import type { Chord_Variant, ChordData, ChordGroup } from '@/types';
 
 type VariantProps = {
 	variant: Chord_Variant;

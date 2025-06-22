@@ -1,9 +1,9 @@
 import Icon from '@/components/Icon';
 
-import type { IconName } from '@/components/Icon';
+import type { Displays_Icon } from '@/types';
 
 type LabelProps = {
-	icon: IconName;
+	icon: Displays_Icon;
 	title: string;
 };
 
