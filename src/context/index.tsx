@@ -211,5 +211,4 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 	return <IndexContext.Provider value={contextValue}>{children}</IndexContext.Provider>;
 }
 
-export { IndexContext };
-export default IndexContextProvider;
+export { IndexContext, IndexContextProvider };
