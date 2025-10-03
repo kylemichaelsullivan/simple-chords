@@ -7,7 +7,7 @@ type FretProps = {
 };
 
 function Fret({ note }: FretProps) {
-	const { notes, getNote, playNote, tonic } = useIndex();
+	const { notes, getNote, playNote, tonic, getBorderStyle } = useIndex();
 
 	return (
 		<div
@@ -15,7 +15,13 @@ function Fret({ note }: FretProps) {
 			title={getNote(note)}
 			onClick={() => playNote(note)}
 		>
-			{notes.includes(note) && <AllowedNote note={getNote(note)} isTonic={note === tonic} />}
+			{notes.includes(note) && (
+				<AllowedNote
+					note={getNote(note)}
+					isTonic={note === tonic}
+					borderStyle={getBorderStyle(note)}
+				/>
+			)}
 		</div>
 	);
 }

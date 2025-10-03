@@ -8,5 +8,14 @@ export default {
 			},
 		},
 	},
+	safelist: [
+		'border',
+		'border-2',
+		'border-double',
+		'border-solid',
+		'border-dashed',
+		'border-dotted',
+		'border-none',
+	],
 	plugins: [],
 };

@@ -22,7 +22,7 @@ function Variant({ variant, onChange }: VariantProps) {
 				<optgroup key={groupName} label={groupName}>
 					{Object.entries(group).map(([variantKey, info]: [string, ChordData]) => (
 						<option key={variantKey} value={variantKey}>
-							{`${getChordSymbol(info.symbol, showNerdMode)} | ${info.display}`}
+							{`${getChordSymbol(variantKey as Chord_Variant, showNerdMode)} | ${info.display}`}
 						</option>
 					))}
 				</optgroup>

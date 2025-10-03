@@ -3,7 +3,7 @@ import { useState, useEffect, createContext, useCallback, useMemo } from 'react'
 import { Flats, Sharps, Frequencies } from '@/lookups/Notes';
 import { getChordInfo, getChordSymbol } from '@/lookups/Chords';
 
-import type { Chord_Tonic, Chord_Variant, Chord_UsingFlats, Displays_Icon } from '@/types';
+import type { Chord_Tonic, Chord_Variant, Chord_UsingFlats, Displays_Icon, border } from '@/types';
 import type { IndexContextType, IndexContextProviderProps } from './types';
 
 const IndexContext = createContext<IndexContextType | undefined>(undefined);
@@ -111,12 +111,36 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 		[currentScale]
 	);
 
+	const getBorderStyle = useCallback(
+		(note: number): border => {
+			if (showNerdMode || note === tonic) {
+				return 'none';
+			}
+
+			const chordInfo = getChordInfo(variant);
+			let currentSemitones = 0;
+
+			for (let i = 0; i < chordInfo.intervals.length; i++) {
+				const [interval, , style] = chordInfo.intervals[i];
+				currentSemitones += interval * 2;
+				const noteIndex = (tonic + currentSemitones) % 12;
+
+				if (noteIndex === note) {
+					return style;
+				}
+			}
+
+			return 'solid';
+		},
+		[tonic, variant, showNerdMode]
+	);
+
 	const makeScale = useCallback((tonic: Chord_Tonic, variant: Chord_Variant) => {
 		const scaleNotes: Chord_Tonic[] = [tonic];
 		const chordInfo = getChordInfo(variant);
 		let currentNote = tonic;
 
-		chordInfo.intervals.forEach(interval => {
+		chordInfo.intervals.forEach(([interval]) => {
 			currentNote = (currentNote + interval * 2) % 12;
 			scaleNotes.push(currentNote);
 		});
@@ -152,11 +176,10 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 
 	const chordName = useMemo(() => {
 		const note = getNote(tonic);
-		const chordInfo = getChordInfo(variant);
 		if (variant === 'major') {
 			return showNerdMode ? note : `${note}△`;
 		}
-		const symbol = getChordSymbol(chordInfo.symbol, showNerdMode);
+		const symbol = getChordSymbol(variant, showNerdMode);
 		return `${note}${symbol}`;
 	}, [tonic, variant, getNote, showNerdMode]);
 
@@ -182,6 +205,7 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 			toggleShowNerdMode,
 			capitalizeFirstLetter,
 			getNote,
+			getBorderStyle,
 			makeScale,
 			playNote,
 			reset,
@@ -202,6 +226,7 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 			toggleShowNerdMode,
 			capitalizeFirstLetter,
 			getNote,
+			getBorderStyle,
 			makeScale,
 			playNote,
 			reset,

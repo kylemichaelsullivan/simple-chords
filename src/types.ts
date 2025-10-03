@@ -36,140 +36,140 @@ export type ChordInfo = {
 	display: string;
 };
 
-export type SimpleTriad = 'major' | 'minor' | 'power-chord';
+const SIMPLE_TRIADS = ['major', 'minor', 'power-chord'] as const;
 
-export type OtherTriad = 'sus2' | 'sus4' | 'diminished' | 'augmented';
+const OTHER_TRIADS = ['sus2', 'sus4', 'diminished', 'augmented'] as const;
 
-export type SixthChord = 'major-6' | 'minor-6';
+const SIXTH_CHORDS = ['major-6', 'minor-6'] as const;
 
-export type SeventhChord =
-	| 'dominant-7'
-	| 'major-7'
-	| 'minor-7'
-	| 'minor-major-7'
-	| 'half-diminished-7'
-	| 'diminished-7'
-	| 'augmented-7';
+const SIXTH_NINTH_CHORDS = ['major-6-9', 'minor-6-9'] as const;
 
-export type NinthChord =
-	| 'dominant-9'
-	| 'major-9'
-	| 'minor-9'
-	| 'add9'
-	| 'minor-add9'
-	| 'major-minor-9'
-	| 'half-diminished-9'
-	| 'diminished-9'
-	| 'augmented-9';
+const SEVENTH_CHORDS = [
+	'major-7',
+	'dominant-7',
+	'minor-7',
+	'minor-major-7',
+	'augmented-major-7',
+	'augmented-dominant-7',
+	'half-diminished-7',
+	'diminished-7',
+] as const;
 
-export type EleventhChord =
-	| 'dominant-11'
-	| 'major-11'
-	| 'minor-11'
-	| 'add11'
-	| 'minor-add11'
-	| 'major-minor-11'
-	| 'half-diminished-11'
-	| 'diminished-11'
-	| 'augmented-11';
+const NINTH_CHORDS = [
+	'major-9',
+	'dominant-9',
+	'minor-9',
+	'minor-major-9',
+	'add9',
+	'minor-add9',
+	'augmented-dominant-9',
+	'dominant-7-flat-9',
+	'dominant-7-sharp-9',
+	'half-diminished-9',
+	'diminished-9',
+] as const;
 
-export type ThirteenthChord =
-	| 'dominant-13'
-	| 'major-13'
-	| 'minor-13'
-	| 'add13'
-	| 'minor-add13'
-	| 'major-minor-13'
-	| 'half-diminished-13'
-	| 'diminished-13'
-	| 'augmented-13';
+const ELEVENTH_CHORDS = [
+	'major-11',
+	'dominant-11',
+	'minor-11',
+	'add11',
+	'minor-add11',
+	'augmented-dominant-11',
+	'dominant-7-sharp-11',
+	'half-diminished-11',
+	'diminished-11',
+] as const;
 
-export type AlteredChord =
-	| 'dominant-7-flat-5'
-	| 'dominant-7-sharp-5'
-	| 'dominant-7-flat-9'
-	| 'dominant-7-sharp-9'
-	| 'dominant-7-flat-11'
-	| 'dominant-7-sharp-11'
-	| 'dominant-7-flat-13'
-	| 'dominant-7-sharp-13'
-	| 'major-7-flat-5'
-	| 'major-7-sharp-5'
-	| 'major-7-flat-9'
-	| 'major-7-sharp-9'
-	| 'major-7-flat-11'
-	| 'major-7-sharp-11'
-	| 'major-7-flat-13'
-	| 'major-7-sharp-13';
+const THIRTEENTH_CHORDS = [
+	'major-13',
+	'dominant-13',
+	'minor-13',
+	'add13',
+	'minor-add13',
+	'augmented-dominant-13',
+	'dominant-7-flat-13',
+	'half-diminished-13',
+	'diminished-13',
+] as const;
+
+const ALTERED_CHORDS = [
+	'major-7-sharp-5',
+	'major-7-flat-5',
+	'dominant-7-sharp-5',
+	'dominant-7-flat-5',
+	'dominant-7-sharp-9',
+	'dominant-7-flat-9',
+	'major-7-sharp-9',
+	'major-7-flat-9',
+	'dominant-7-sharp-11',
+	'dominant-7-flat-11',
+	'major-7-sharp-11',
+	'major-7-flat-11',
+	'dominant-7-sharp-13',
+	'dominant-7-flat-13',
+	'major-7-sharp-13',
+	'major-7-flat-13',
+	'dominant-7-alt',
+] as const;
+
+const SUSPENDED_CHORDS = [
+	'sus2',
+	'sus4',
+	'dominant-7-sus4',
+	'dominant-9-sus4',
+	'dominant-13-sus4',
+] as const;
+
+export type SimpleTriad = (typeof SIMPLE_TRIADS)[number];
+export type OtherTriad = (typeof OTHER_TRIADS)[number];
+export type SixthChord = (typeof SIXTH_CHORDS)[number];
+export type SixthNinthChord = (typeof SIXTH_NINTH_CHORDS)[number];
+export type SeventhChord = (typeof SEVENTH_CHORDS)[number];
+export type NinthChord = (typeof NINTH_CHORDS)[number];
+export type EleventhChord = (typeof ELEVENTH_CHORDS)[number];
+export type ThirteenthChord = (typeof THIRTEENTH_CHORDS)[number];
+export type AlteredChord = (typeof ALTERED_CHORDS)[number];
+export type SuspendedChord = (typeof SUSPENDED_CHORDS)[number];
 
 export type Chord_Variant =
-	| 'major'
-	| 'minor'
-	| 'power-chord'
-	| 'sus2'
-	| 'sus4'
-	| 'diminished'
-	| 'augmented'
-	| 'major-6'
-	| 'minor-6'
-	| 'dominant-7'
-	| 'major-7'
-	| 'minor-7'
-	| 'minor-major-7'
-	| 'half-diminished-7'
-	| 'diminished-7'
-	| 'augmented-7'
-	| 'dominant-9'
-	| 'major-9'
-	| 'minor-9'
-	| 'add9'
-	| 'minor-add9'
-	| 'major-minor-9'
-	| 'half-diminished-9'
-	| 'diminished-9'
-	| 'augmented-9'
-	| 'dominant-11'
-	| 'major-11'
-	| 'minor-11'
-	| 'add11'
-	| 'minor-add11'
-	| 'major-minor-11'
-	| 'half-diminished-11'
-	| 'diminished-11'
-	| 'augmented-11'
-	| 'dominant-13'
-	| 'major-13'
-	| 'minor-13'
-	| 'add13'
-	| 'minor-add13'
-	| 'major-minor-13'
-	| 'half-diminished-13'
-	| 'diminished-13'
-	| 'augmented-13'
-	| 'dominant-7-flat-5'
-	| 'dominant-7-sharp-5'
-	| 'dominant-7-flat-9'
-	| 'dominant-7-sharp-9'
-	| 'dominant-7-flat-11'
-	| 'dominant-7-sharp-11'
-	| 'dominant-7-flat-13'
-	| 'dominant-7-sharp-13'
-	| 'major-7-flat-5'
-	| 'major-7-sharp-5'
-	| 'major-7-flat-9'
-	| 'major-7-sharp-9'
-	| 'major-7-flat-11'
-	| 'major-7-sharp-11'
-	| 'major-7-flat-13'
-	| 'major-7-sharp-13';
+	| SimpleTriad
+	| OtherTriad
+	| SixthChord
+	| SixthNinthChord
+	| SeventhChord
+	| NinthChord
+	| EleventhChord
+	| ThirteenthChord
+	| AlteredChord
+	| SuspendedChord;
+
+type interval = number;
+type label = string;
+type nerdSymbol = string;
+type jazzSymbol = string;
+export type border = 'double' | 'solid' | 'dashed' | 'dotted' | 'none';
 
 export type ChordData = {
-	symbol: string;
 	display: string;
-	intervals: number[];
+	intervals: [interval, label, border][];
+	symbols: [nerdSymbol, jazzSymbol];
 };
 
 export type ChordGroup = Record<string, ChordData>;
 
 export type Displays_Text = 'Piano' | 'Guitar' | 'Banjo' | 'Ukelele' | 'Mandolin';
 export type Displays_Icon = 'keyboard' | 'guitar' | 'banjo' | 'ukelele' | 'mandolin';
+
+export {
+	SIMPLE_TRIADS,
+	OTHER_TRIADS,
+	SIXTH_CHORDS,
+	SIXTH_NINTH_CHORDS,
+	SEVENTH_CHORDS,
+	NINTH_CHORDS,
+	ELEVENTH_CHORDS,
+	THIRTEENTH_CHORDS,
+	ALTERED_CHORDS,
+	SUSPENDED_CHORDS,
+};

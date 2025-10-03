@@ -9,7 +9,7 @@ type KeyProps = {
 };
 
 function Key({ isBlack, note, isAllowed }: KeyProps) {
-	const { getNote, playNote, tonic } = useIndex();
+	const { getNote, playNote, tonic, getBorderStyle } = useIndex();
 
 	return (
 		<div
@@ -17,7 +17,14 @@ function Key({ isBlack, note, isAllowed }: KeyProps) {
 			title={getNote(note)}
 			onClick={() => playNote(note)}
 		>
-			{isAllowed && <AllowedNote note={getNote(note)} isTonic={note === tonic} isPiano={true} />}
+			{isAllowed && (
+				<AllowedNote
+					note={getNote(note)}
+					isTonic={note === tonic}
+					borderStyle={getBorderStyle(note)}
+					isPiano={true}
+				/>
+			)}
 		</div>
 	);
 }

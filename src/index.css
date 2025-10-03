@@ -102,6 +102,16 @@ select {
 	transform: translateX(-50%);
 }
 
+/* AllowedNote borders */
+.AllowedNote {
+	border-color: #ffffff;
+}
+
+.Banjo .AllowedNote,
+.Piano .Key.White .AllowedNote {
+	border-color: #000000;
+}
+
 .Guitar {
 	--fretboard-color: #ff0000;
 }
