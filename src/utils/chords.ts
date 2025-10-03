@@ -573,25 +573,23 @@ export const CHORDS: Record<string, ChordGroup> = {
 			],
 			symbols: ['7♭5', '7♭5'],
 		},
-		'dominant-7-sharp-9': {
-			display: 'Dominant 7 Sharp 9',
+		'minor-7-sharp-5': {
+			display: 'Minor 7 Sharp 5',
 			intervals: [
-				[2, '3', 'solid'],
-				[1.5, '5', 'dotted'],
-				[1.5, '♭7', 'solid'],
-				[2.5, '♯9', 'double'],
+				[1.5, '♭3', 'solid'],
+				[2.5, '♯5', 'double'],
+				[1, '♭7', 'solid'],
 			],
-			symbols: ['7♯9', '7♯9'],
+			symbols: ['m7♯5', '–7♯5'],
 		},
-		'dominant-7-flat-9': {
-			display: 'Dominant 7 Flat 9',
+		'minor-7-flat-5': {
+			display: 'Minor 7 Flat 5',
 			intervals: [
-				[2, '3', 'solid'],
-				[1.5, '5', 'dotted'],
-				[1.5, '♭7', 'solid'],
-				[1.5, '♭9', 'double'],
+				[1.5, '♭3', 'solid'],
+				[1, '♭5', 'double'],
+				[2, '♭7', 'solid'],
 			],
-			symbols: ['7♭9', '7♭9'],
+			symbols: ['m7♭5', '–7♭5'],
 		},
 		'major-7-sharp-9': {
 			display: 'Major 7 Sharp 9',
@@ -612,6 +610,46 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[1, '♭9', 'double'],
 			],
 			symbols: ['maj7♭9', '△7♭9'],
+		},
+		'minor-7-sharp-9': {
+			display: 'Minor 7 Sharp 9',
+			intervals: [
+				[1.5, '♭3', 'solid'],
+				[2, '5', 'dotted'],
+				[1.5, '♭7', 'solid'],
+				[2.5, '♯9', 'double'],
+			],
+			symbols: ['m7♯9', '–7♯9'],
+		},
+		'minor-7-flat-9': {
+			display: 'Minor 7 Flat 9',
+			intervals: [
+				[1.5, '♭3', 'solid'],
+				[2, '5', 'dotted'],
+				[1.5, '♭7', 'solid'],
+				[1.5, '♭9', 'double'],
+			],
+			symbols: ['m7♭9', '–7♭9'],
+		},
+		'dominant-7-sharp-9': {
+			display: 'Dominant 7 Sharp 9',
+			intervals: [
+				[2, '3', 'solid'],
+				[1.5, '5', 'dotted'],
+				[1.5, '♭7', 'solid'],
+				[2.5, '♯9', 'double'],
+			],
+			symbols: ['7♯9', '7♯9'],
+		},
+		'dominant-7-flat-9': {
+			display: 'Dominant 7 Flat 9',
+			intervals: [
+				[2, '3', 'solid'],
+				[1.5, '5', 'dotted'],
+				[1.5, '♭7', 'solid'],
+				[1.5, '♭9', 'double'],
+			],
+			symbols: ['7♭9', '7♭9'],
 		},
 		'dominant-7-sharp-11': {
 			display: 'Dominant 7 Sharp 11',
@@ -653,6 +691,26 @@ export const CHORDS: Record<string, ChordGroup> = {
 			],
 			symbols: ['maj7♭11', '△7♭11'],
 		},
+		'minor-7-sharp-11': {
+			display: 'Minor 7 Sharp 11',
+			intervals: [
+				[1.5, '♭3', 'solid'],
+				[2, '5', 'dotted'],
+				[1.5, '♭7', 'solid'],
+				[3.5, '♯11', 'double'],
+			],
+			symbols: ['m7♯11', '–7♯11'],
+		},
+		'minor-7-flat-11': {
+			display: 'Minor 7 Flat 11',
+			intervals: [
+				[1.5, '♭3', 'solid'],
+				[2, '5', 'dotted'],
+				[1.5, '♭7', 'solid'],
+				[2.5, '♭11', 'double'],
+			],
+			symbols: ['m7♭11', '–7♭11'],
+		},
 		'dominant-7-sharp-13': {
 			display: 'Dominant 7 Sharp 13',
 			intervals: [
@@ -692,6 +750,26 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[4.5, '♭13', 'double'],
 			],
 			symbols: ['maj7♭13', '△7♭13'],
+		},
+		'minor-7-sharp-13': {
+			display: 'Minor 7 Sharp 13',
+			intervals: [
+				[1.5, '♭3', 'solid'],
+				[2, '5', 'dotted'],
+				[1.5, '♭7', 'solid'],
+				[5.5, '♯13', 'double'],
+			],
+			symbols: ['m7♯13', '–7♯13'],
+		},
+		'minor-7-flat-13': {
+			display: 'Minor 7 Flat 13',
+			intervals: [
+				[1.5, '♭3', 'solid'],
+				[2, '5', 'dotted'],
+				[1.5, '♭7', 'solid'],
+				[4.5, '♭13', 'double'],
+			],
+			symbols: ['m7♭13', '–7♭13'],
 		},
 	},
 } as const;
