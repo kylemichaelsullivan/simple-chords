@@ -4,23 +4,7 @@ export type Chord_NoteCount = number;
 export type Chord_Tonic = number;
 
 // Re-export commonly used types for convenience (no circular dependencies)
-export type {
-	Chord_Variant,
-	SimpleTriad,
-	OtherTriad,
-	SixthChord,
-	SixthNinthChord,
-	SeventhChord,
-	NinthChord,
-	EleventhChord,
-	ThirteenthChord,
-	AlteredChord,
-	SuspendedChord,
-	ChordData,
-	ChordGroup,
-	ChordInfo,
-	border,
-} from '@/utils/chords';
+export type { Chord_Variant, ChordData, ChordGroup, ChordInfo, border } from '@/utils/chords';
 
 export type { Displays_Icon, Displays_Text } from '@/utils/displays';
 

@@ -37,7 +37,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 		},
 		'power-chord': {
 			display: 'Power Chord',
-			intervals: [[3.5, '5', 'dotted']],
+			intervals: [[3.5, '5', 'solid']],
 			symbols: ['5', '5'],
 		},
 	},
@@ -45,7 +45,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 		sus2: {
 			display: 'Suspended 2',
 			intervals: [
-				[1, '2', 'dashed'],
+				[1, '2', 'solid'],
 				[2.5, '5', 'dotted'],
 			],
 			symbols: ['sus2', 'sus2'],
@@ -53,7 +53,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 		sus4: {
 			display: 'Suspended 4',
 			intervals: [
-				[2.5, '4', 'dashed'],
+				[2.5, '4', 'solid'],
 				[1, '5', 'dotted'],
 			],
 			symbols: ['sus4', 'sus4'],
@@ -62,7 +62,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Diminished',
 			intervals: [
 				[1.5, '♭3', 'solid'],
-				[1.5, '♭5', 'dotted'],
+				[1.5, '♭5', 'solid'],
 			],
 			symbols: ['dim', '°'],
 		},
@@ -70,7 +70,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Augmented',
 			intervals: [
 				[2, '3', 'solid'],
-				[2, '♯5', 'dotted'],
+				[2, '♯5', 'solid'],
 			],
 			symbols: ['aug', '+'],
 		},
@@ -81,7 +81,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			intervals: [
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
-				[1, '6', 'dashed'],
+				[1, '6', 'solid'],
 			],
 			symbols: ['6', '6'],
 		},
@@ -90,7 +90,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			intervals: [
 				[1.5, '♭3', 'solid'],
 				[2, '5', 'dotted'],
-				[1, '6', 'dashed'],
+				[1, '6', 'solid'],
 			],
 			symbols: ['m6', '–6'],
 		},
@@ -101,8 +101,8 @@ export const CHORDS: Record<string, ChordGroup> = {
 			intervals: [
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
-				[1, '6', 'dashed'],
-				[2, '9', 'dashed'],
+				[1, '6', 'solid'],
+				[2, '9', 'solid'],
 			],
 			symbols: ['6/9', '6/9'],
 		},
@@ -111,8 +111,8 @@ export const CHORDS: Record<string, ChordGroup> = {
 			intervals: [
 				[1.5, '♭3', 'solid'],
 				[2, '5', 'dotted'],
-				[1, '6', 'dashed'],
-				[2, '9', 'dashed'],
+				[1, '6', 'solid'],
+				[2, '9', 'solid'],
 			],
 			symbols: ['m6/9', '–6/9'],
 		},
@@ -158,7 +158,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Augmented Major 7',
 			intervals: [
 				[2, '3', 'solid'],
-				[2, '♯5', 'dotted'],
+				[2, '♯5', 'solid'],
 				[1.5, '7', 'solid'],
 			],
 			symbols: ['augmaj7', '+△7'],
@@ -167,7 +167,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Augmented Dominant 7',
 			intervals: [
 				[2, '3', 'solid'],
-				[2, '♯5', 'dotted'],
+				[2, '♯5', 'solid'],
 				[1, '♭7', 'solid'],
 			],
 			symbols: ['aug7', '+7'],
@@ -176,7 +176,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Half Diminished 7',
 			intervals: [
 				[1.5, '♭3', 'solid'],
-				[1.5, '♭5', 'dotted'],
+				[1.5, '♭5', 'solid'],
 				[2, '♭7', 'solid'],
 			],
 			symbols: ['ø', 'ø'],
@@ -185,7 +185,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Diminished 7',
 			intervals: [
 				[1.5, '♭3', 'solid'],
-				[1.5, '♭5', 'dotted'],
+				[1.5, '♭5', 'solid'],
 				[1.5, 'bb7', 'solid'],
 			],
 			symbols: ['dim7', '°7'],
@@ -198,7 +198,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[2, '7', 'solid'],
-				[1.5, '9', 'dashed'],
+				[1.5, '9', 'solid'],
 			],
 			symbols: ['maj9', '△9'],
 		},
@@ -208,7 +208,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[2, '9', 'dashed'],
+				[2, '9', 'solid'],
 			],
 			symbols: ['9', '9'],
 		},
@@ -218,7 +218,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[1.5, '♭3', 'solid'],
 				[2, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[2, '9', 'dashed'],
+				[2, '9', 'solid'],
 			],
 			symbols: ['m9', '–9'],
 		},
@@ -228,7 +228,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[1.5, '♭3', 'solid'],
 				[2, '5', 'dotted'],
 				[2, '7', 'solid'],
-				[1.5, '9', 'dashed'],
+				[1.5, '9', 'solid'],
 			],
 			symbols: ['m(maj9)', '–△9'],
 		},
@@ -237,7 +237,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			intervals: [
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
-				[3.5, '9', 'dashed'],
+				[3.5, '9', 'solid'],
 			],
 			symbols: ['add9', 'add9'],
 		},
@@ -246,7 +246,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			intervals: [
 				[1.5, '♭3', 'solid'],
 				[2, '5', 'dotted'],
-				[3.5, '9', 'dashed'],
+				[3.5, '9', 'solid'],
 			],
 			symbols: ['madd9', '–add9'],
 		},
@@ -254,9 +254,9 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Augmented Dominant 9',
 			intervals: [
 				[2, '3', 'solid'],
-				[2, '♯5', 'dotted'],
+				[2, '♯5', 'solid'],
 				[1, '♭7', 'solid'],
-				[2, '9', 'dashed'],
+				[2, '9', 'solid'],
 			],
 			symbols: ['aug9', '+9'],
 		},
@@ -266,7 +266,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[1.5, '♭9', 'dashed'],
+				[1.5, '♭9', 'double'],
 			],
 			symbols: ['7♭9', '7♭9'],
 		},
@@ -276,7 +276,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[2.5, '♯9', 'dashed'],
+				[2.5, '♯9', 'double'],
 			],
 			symbols: ['7♯9', '7♯9'],
 		},
@@ -284,9 +284,9 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Half Diminished 9',
 			intervals: [
 				[1.5, '♭3', 'solid'],
-				[1.5, '♭5', 'dotted'],
+				[1.5, '♭5', 'solid'],
 				[2, '♭7', 'solid'],
-				[1.5, '9', 'dashed'],
+				[1.5, '9', 'solid'],
 			],
 			symbols: ['ø9', 'ø9'],
 		},
@@ -294,9 +294,9 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Diminished 9',
 			intervals: [
 				[1.5, '♭3', 'solid'],
-				[1.5, '♭5', 'dotted'],
+				[1.5, '♭5', 'solid'],
 				[1.5, 'bb7', 'solid'],
-				[2, '9', 'dashed'],
+				[2, '9', 'solid'],
 			],
 			symbols: ['dim9', '°9'],
 		},
@@ -309,7 +309,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[1.5, '5', 'dotted'],
 				[2, '7', 'solid'],
 				[1.5, '9', 'dashed'],
-				[1.5, '11', 'none'],
+				[1.5, '11', 'solid'],
 			],
 			symbols: ['maj11', '△11'],
 		},
@@ -320,7 +320,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[1.5, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
 				[2, '9', 'dashed'],
-				[1.5, '11', 'none'],
+				[1.5, '11', 'solid'],
 			],
 			symbols: ['11', '11'],
 		},
@@ -331,7 +331,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
 				[2, '9', 'dashed'],
-				[1.5, '11', 'none'],
+				[1.5, '11', 'solid'],
 			],
 			symbols: ['m11', '–11'],
 		},
@@ -341,7 +341,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[3.5, '9', 'dashed'],
-				[1.5, '11', 'none'],
+				[1.5, '11', 'solid'],
 			],
 			symbols: ['add11', 'add11'],
 		},
@@ -351,7 +351,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[1.5, '♭3', 'solid'],
 				[2, '5', 'dotted'],
 				[3.5, '9', 'dashed'],
-				[1.5, '11', 'none'],
+				[1.5, '11', 'solid'],
 			],
 			symbols: ['madd11', '–add11'],
 		},
@@ -359,10 +359,10 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Augmented Dominant 11',
 			intervals: [
 				[2, '3', 'solid'],
-				[2, '♯5', 'dotted'],
+				[2, '♯5', 'solid'],
 				[1, '♭7', 'solid'],
 				[2, '9', 'dashed'],
-				[1.5, '11', 'none'],
+				[1.5, '11', 'solid'],
 			],
 			symbols: ['aug11', '+11'],
 		},
@@ -372,7 +372,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[4, '♯11', 'none'],
+				[4, '♯11', 'double'],
 			],
 			symbols: ['7♯11', '7♯11'],
 		},
@@ -380,10 +380,10 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Half Diminished 11',
 			intervals: [
 				[1.5, '♭3', 'solid'],
-				[1.5, '♭5', 'dotted'],
+				[1.5, '♭5', 'solid'],
 				[2, '♭7', 'solid'],
 				[1.5, '9', 'dashed'],
-				[2, '11', 'none'],
+				[2, '11', 'solid'],
 			],
 			symbols: ['ø11', 'ø11'],
 		},
@@ -391,10 +391,10 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Diminished 11',
 			intervals: [
 				[1.5, '♭3', 'solid'],
-				[1.5, '♭5', 'dotted'],
+				[1.5, '♭5', 'solid'],
 				[1.5, 'bb7', 'solid'],
 				[2, '9', 'dashed'],
-				[2, '11', 'none'],
+				[2, '11', 'solid'],
 			],
 			symbols: ['dim11', '°11'],
 		},
@@ -442,7 +442,8 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[3.5, '9', 'dashed'],
-				[3.5, '13', 'solid'],
+				[1.5, '11', 'none'],
+				[2, '13', 'solid'],
 			],
 			symbols: ['add13', 'add13'],
 		},
@@ -452,7 +453,8 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[1.5, '♭3', 'solid'],
 				[2, '5', 'dotted'],
 				[3.5, '9', 'dashed'],
-				[3.5, '13', 'solid'],
+				[1.5, '11', 'none'],
+				[2, '13', 'solid'],
 			],
 			symbols: ['madd13', '–add13'],
 		},
@@ -460,10 +462,11 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Augmented Dominant 13',
 			intervals: [
 				[2, '3', 'solid'],
-				[2, '♯5', 'dotted'],
+				[2, '♯5', 'solid'],
 				[1, '♭7', 'solid'],
 				[2, '9', 'dashed'],
-				[3.5, '13', 'solid'],
+				[1.5, '11', 'none'],
+				[2, '13', 'solid'],
 			],
 			symbols: ['aug13', '+13'],
 		},
@@ -473,7 +476,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[5, '♭13', 'solid'],
+				[5, '♭13', 'double'],
 			],
 			symbols: ['7♭13', '7♭13'],
 		},
@@ -481,7 +484,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Half Diminished 13',
 			intervals: [
 				[1.5, '♭3', 'solid'],
-				[1.5, '♭5', 'dotted'],
+				[1.5, '♭5', 'solid'],
 				[2, '♭7', 'solid'],
 				[1.5, '9', 'dashed'],
 				[4, '13', 'solid'],
@@ -492,7 +495,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Diminished 13',
 			intervals: [
 				[1.5, '♭3', 'solid'],
-				[1.5, '♭5', 'dotted'],
+				[1.5, '♭5', 'solid'],
 				[1.5, 'bb7', 'solid'],
 				[2, '9', 'dashed'],
 				[4, '13', 'solid'],
@@ -504,7 +507,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 		'dominant-7-sus4': {
 			display: 'Dominant 7 Sus4',
 			intervals: [
-				[2.5, '4', 'dashed'],
+				[2.5, '4', 'solid'],
 				[1, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
 			],
@@ -513,17 +516,17 @@ export const CHORDS: Record<string, ChordGroup> = {
 		'dominant-9-sus4': {
 			display: 'Dominant 9 Sus4',
 			intervals: [
-				[2.5, '4', 'dashed'],
+				[2.5, '4', 'solid'],
 				[1, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[2, '9', 'dashed'],
+				[2, '9', 'solid'],
 			],
 			symbols: ['9sus4', '9sus4'],
 		},
 		'dominant-13-sus4': {
 			display: 'Dominant 13 Sus4',
 			intervals: [
-				[2.5, '4', 'dashed'],
+				[2.5, '4', 'solid'],
 				[1, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
 				[2, '9', 'dashed'],
@@ -538,7 +541,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Major 7 Sharp 5',
 			intervals: [
 				[2, '3', 'solid'],
-				[2, '♯5', 'dotted'],
+				[2, '♯5', 'double'],
 				[1.5, '7', 'solid'],
 			],
 			symbols: ['maj7♯5', '△7♯5'],
@@ -547,7 +550,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Major 7 Flat 5',
 			intervals: [
 				[2, '3', 'solid'],
-				[1, '♭5', 'dotted'],
+				[1, '♭5', 'double'],
 				[2.5, '7', 'solid'],
 			],
 			symbols: ['maj7♭5', '△7♭5'],
@@ -556,7 +559,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Dominant 7 Sharp 5',
 			intervals: [
 				[2, '3', 'solid'],
-				[2, '♯5', 'dotted'],
+				[2, '♯5', 'double'],
 				[1, '♭7', 'solid'],
 			],
 			symbols: ['7♯5', '7♯5'],
@@ -565,7 +568,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			display: 'Dominant 7 Flat 5',
 			intervals: [
 				[2, '3', 'solid'],
-				[1, '♭5', 'dotted'],
+				[1, '♭5', 'double'],
 				[2, '♭7', 'solid'],
 			],
 			symbols: ['7♭5', '7♭5'],
@@ -576,7 +579,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[2.5, '♯9', 'dashed'],
+				[2.5, '♯9', 'double'],
 			],
 			symbols: ['7♯9', '7♯9'],
 		},
@@ -586,7 +589,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[1.5, '♭9', 'dashed'],
+				[1.5, '♭9', 'double'],
 			],
 			symbols: ['7♭9', '7♭9'],
 		},
@@ -596,7 +599,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[2, '7', 'solid'],
-				[2, '♯9', 'dashed'],
+				[2, '♯9', 'double'],
 			],
 			symbols: ['maj7♯9', '△7♯9'],
 		},
@@ -606,7 +609,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[2, '7', 'solid'],
-				[1, '♭9', 'dashed'],
+				[1, '♭9', 'double'],
 			],
 			symbols: ['maj7♭9', '△7♭9'],
 		},
@@ -616,7 +619,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[4, '♯11', 'none'],
+				[4, '♯11', 'double'],
 			],
 			symbols: ['7♯11', '7♯11'],
 		},
@@ -626,7 +629,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[2.5, '♭11', 'none'],
+				[2.5, '♭11', 'double'],
 			],
 			symbols: ['7♭11', '7♭11'],
 		},
@@ -636,7 +639,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[2, '7', 'solid'],
-				[3.5, '♯11', 'none'],
+				[3.5, '♯11', 'double'],
 			],
 			symbols: ['maj7♯11', '△7♯11'],
 		},
@@ -646,7 +649,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[2, '7', 'solid'],
-				[2.5, '♭11', 'none'],
+				[2.5, '♭11', 'double'],
 			],
 			symbols: ['maj7♭11', '△7♭11'],
 		},
@@ -656,7 +659,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[3.5, '♯13', 'solid'],
+				[3.5, '♯13', 'double'],
 			],
 			symbols: ['7♯13', '7♯13'],
 		},
@@ -666,7 +669,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[5, '♭13', 'solid'],
+				[5, '♭13', 'double'],
 			],
 			symbols: ['7♭13', '7♭13'],
 		},
@@ -676,7 +679,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[2, '7', 'solid'],
-				[5.5, '♯13', 'solid'],
+				[5.5, '♯13', 'double'],
 			],
 			symbols: ['maj7♯13', '△7♯13'],
 		},
@@ -686,7 +689,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 				[2, '7', 'solid'],
-				[4.5, '♭13', 'solid'],
+				[4.5, '♭13', 'double'],
 			],
 			symbols: ['maj7♭13', '△7♭13'],
 		},
@@ -722,110 +725,6 @@ export const getChordGroups = () => Object.keys(CHORDS);
 
 export const getChordVariants = (group: string) => Object.keys(CHORDS[group]);
 
-export const SIMPLE_TRIADS = ['major', 'minor', 'power-chord'] as const;
-
-export const OTHER_TRIADS = ['sus2', 'sus4', 'diminished', 'augmented'] as const;
-
-export const SIXTH_CHORDS = ['major-6', 'minor-6'] as const;
-
-export const SIXTH_NINTH_CHORDS = ['major-6-9', 'minor-6-9'] as const;
-
-export const SEVENTH_CHORDS = [
-	'major-7',
-	'dominant-7',
-	'minor-7',
-	'minor-major-7',
-	'augmented-major-7',
-	'augmented-dominant-7',
-	'half-diminished-7',
-	'diminished-7',
-] as const;
-
-export const NINTH_CHORDS = [
-	'major-9',
-	'dominant-9',
-	'minor-9',
-	'minor-major-9',
-	'add9',
-	'minor-add9',
-	'augmented-dominant-9',
-	'dominant-7-flat-9',
-	'dominant-7-sharp-9',
-	'half-diminished-9',
-	'diminished-9',
-] as const;
-
-export const ELEVENTH_CHORDS = [
-	'major-11',
-	'dominant-11',
-	'minor-11',
-	'add11',
-	'minor-add11',
-	'augmented-dominant-11',
-	'dominant-7-sharp-11',
-	'half-diminished-11',
-	'diminished-11',
-] as const;
-
-export const THIRTEENTH_CHORDS = [
-	'major-13',
-	'dominant-13',
-	'minor-13',
-	'add13',
-	'minor-add13',
-	'augmented-dominant-13',
-	'dominant-7-flat-13',
-	'half-diminished-13',
-	'diminished-13',
-] as const;
-
-export const ALTERED_CHORDS = [
-	'major-7-sharp-5',
-	'major-7-flat-5',
-	'dominant-7-sharp-5',
-	'dominant-7-flat-5',
-	'dominant-7-sharp-9',
-	'dominant-7-flat-9',
-	'major-7-sharp-9',
-	'major-7-flat-9',
-	'dominant-7-sharp-11',
-	'dominant-7-flat-11',
-	'major-7-sharp-11',
-	'major-7-flat-11',
-	'dominant-7-sharp-13',
-	'dominant-7-flat-13',
-	'major-7-sharp-13',
-	'major-7-flat-13',
-	'dominant-7-alt',
-] as const;
-
-export const SUSPENDED_CHORDS = [
-	'sus2',
-	'sus4',
-	'dominant-7-sus4',
-	'dominant-9-sus4',
-	'dominant-13-sus4',
-] as const;
-
-export type SimpleTriad = (typeof SIMPLE_TRIADS)[number];
-export type OtherTriad = (typeof OTHER_TRIADS)[number];
-export type SixthChord = (typeof SIXTH_CHORDS)[number];
-export type SixthNinthChord = (typeof SIXTH_NINTH_CHORDS)[number];
-export type SeventhChord = (typeof SEVENTH_CHORDS)[number];
-export type NinthChord = (typeof NINTH_CHORDS)[number];
-export type EleventhChord = (typeof ELEVENTH_CHORDS)[number];
-export type ThirteenthChord = (typeof THIRTEENTH_CHORDS)[number];
-export type AlteredChord = (typeof ALTERED_CHORDS)[number];
-export type SuspendedChord = (typeof SUSPENDED_CHORDS)[number];
-
-export type Chord_Variant =
-	| SimpleTriad
-	| OtherTriad
-	| SixthChord
-	| SixthNinthChord
-	| SeventhChord
-	| NinthChord
-	| EleventhChord
-	| ThirteenthChord
-	| AlteredChord
-	| SuspendedChord;
+export type Chord_Variant = {
+	[K in keyof typeof CHORDS]: keyof (typeof CHORDS)[K];
+}[keyof typeof CHORDS];
