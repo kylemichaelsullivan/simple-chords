@@ -1,5 +1,5 @@
 import { useIndex } from '@/hooks/useIndex';
-import { allDisplays } from '@/lookups/Displays';
+import { DISPLAYS_MAP } from '@/utils';
 
 import DisplaySelector from './DisplaySelector';
 
@@ -12,7 +12,7 @@ function DisplaysSelector() {
 		<div className='DisplaysSelector relative border border-slate-500'>
 			<div className='flex overflow-x-auto px-4 py-1'>
 				<div className='mx-auto flex gap-8'>
-					{Object.entries(allDisplays).map(([icon, text]) => (
+					{Object.entries(DISPLAYS_MAP).map(([icon, text]) => (
 						<DisplaySelector
 							key={icon}
 							icon={icon}

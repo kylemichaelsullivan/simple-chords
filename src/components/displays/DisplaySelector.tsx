@@ -1,5 +1,6 @@
-import { Displays_Icon } from '@/types';
 import Icon from '../Icon';
+
+import type { Displays_Icon } from '@/types';
 
 type DisplaySelectorProps = {
 	icon: string;

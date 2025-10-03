@@ -4,8 +4,8 @@ import type {
 	Chord_Tonic,
 	Chord_Variant,
 	Chord_UsingFlats,
-	Displays_Icon,
 	Chord_NoteCount,
+	Displays_Icon,
 	border,
 } from '@/types';
 

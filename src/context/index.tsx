@@ -1,7 +1,6 @@
 import { useState, useEffect, createContext, useCallback, useMemo } from 'react';
 
-import { Flats, Sharps, Frequencies } from '@/lookups/Notes';
-import { getChordInfo, getChordSymbol } from '@/lookups/Chords';
+import { FLATS, SHARPS, FREQUENCIES, getChordInfo, getChordSymbol } from '@/utils';
 
 import type { Chord_Tonic, Chord_Variant, Chord_UsingFlats, Displays_Icon, border } from '@/types';
 import type { IndexContextType, IndexContextProviderProps } from './types';
@@ -71,11 +70,11 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 	}, []);
 
 	const currentScale = useMemo(() => {
-		return usingFlats ? Flats : Sharps;
+		return usingFlats ? FLATS : SHARPS;
 	}, [usingFlats]);
 
 	const getFrequency = useCallback((note: number) => {
-		return Frequencies[note];
+		return FREQUENCIES[note];
 	}, []);
 
 	const playNote = useCallback(

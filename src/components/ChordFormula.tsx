@@ -1,5 +1,7 @@
 import { useIndex } from '@/hooks/useIndex';
-import { getChordInfo } from '@/lookups/Chords';
+import { getChordInfo } from '@/utils';
+
+import type { border } from '@/types';
 
 type ChordFormulaProps = {
 	className?: string;
@@ -7,12 +9,6 @@ type ChordFormulaProps = {
 
 type IntervalsRowProps = {
 	intervals: string[];
-	borderStyles: string[];
-};
-
-type NotesRowProps = {
-	notes: string[];
-	borderStyles: string[];
 };
 
 function IntervalsRow({ intervals }: IntervalsRowProps) {
@@ -27,11 +23,25 @@ function IntervalsRow({ intervals }: IntervalsRowProps) {
 	);
 }
 
-function NotesRow({ notes }: NotesRowProps) {
+type NotesRowProps = {
+	notes: string[];
+	noteIndexes: number[];
+};
+
+function NotesRow({ notes, noteIndexes }: NotesRowProps) {
+	const { getBorderStyle } = useIndex();
+
+	const getBorderClass = (style: border) => {
+		return style === 'none' ? '' : `border-b-2 border-${style}`;
+	};
+
 	return (
 		<div className='grid' style={{ gridTemplateColumns: `repeat(${notes.length}, 1fr)` }}>
 			{notes.map((note, index) => (
-				<div className={`text-sm`} key={`note-${index}`}>
+				<div
+					className={`${getBorderClass(getBorderStyle(noteIndexes[index]))} text-sm mx-auto`}
+					key={`note-${index}`}
+				>
 					{note}
 				</div>
 			))}
@@ -47,33 +57,33 @@ function ChordFormula({ className }: ChordFormulaProps) {
 	const getChordData = () => {
 		const notes: string[] = [];
 		const intervalLabels: string[] = [];
-		const borderStyles: string[] = [];
+		const noteIndexes: number[] = [];
 
 		// Start with tonic
 		notes.push(getNote(tonic));
 		intervalLabels.push('1');
-		borderStyles.push('double');
+		noteIndexes.push(tonic);
 
 		// Calculate the other chord notes based on intervals
 		let currentSemitones = 0;
 
-		chordInfo.intervals.forEach(([interval, label, style]) => {
+		chordInfo.intervals.forEach(([interval, label]) => {
 			currentSemitones += interval * 2; // Convert to semitones
 			const noteIndex = (tonic + currentSemitones) % 12;
 			notes.push(getNote(noteIndex));
 			intervalLabels.push(label);
-			borderStyles.push(style);
+			noteIndexes.push(noteIndex);
 		});
 
-		return { notes, intervalLabels, borderStyles };
+		return { notes, intervalLabels, noteIndexes };
 	};
 
-	const { notes, intervalLabels, borderStyles } = getChordData();
+	const { notes, intervalLabels, noteIndexes } = getChordData();
 
 	return (
 		<div className={`ChordFormula grid col-span-6 flex-auto ${className || ''}`}>
-			{!showNerdMode && <IntervalsRow intervals={intervalLabels} borderStyles={borderStyles} />}
-			<NotesRow notes={notes} borderStyles={borderStyles} />
+			{!showNerdMode && <IntervalsRow intervals={intervalLabels} />}
+			<NotesRow notes={notes} noteIndexes={noteIndexes} />
 		</div>
 	);
 }

@@ -1,4 +1,4 @@
-import { border } from '@/types';
+import type { border } from '@/types';
 
 type AllowedNoteProps = {
 	note: string;
