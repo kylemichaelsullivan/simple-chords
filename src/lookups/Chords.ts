@@ -181,7 +181,7 @@ const CHORD_SYMBOL_MAP = {
 		M: 'M',
 		m: 'm',
 	},
-	rad: {
+	jazz: {
 		maj7: '△7',
 		maj9: '△9',
 		maj11: '△11',
@@ -216,7 +216,7 @@ export const getChordInfo = (variant: Chord_Variant): ChordData => {
 };
 
 export const getChordSymbol = (symbol: string, isNerdMode: boolean): string => {
-	const map = isNerdMode ? CHORD_SYMBOL_MAP.nerd : CHORD_SYMBOL_MAP.rad;
+	const map = isNerdMode ? CHORD_SYMBOL_MAP.nerd : CHORD_SYMBOL_MAP.jazz;
 
 	return Object.entries(map).reduce((result, [from, to]) => {
 		return result.replace(new RegExp(escapeRegExp(from), 'g'), to);
@@ -226,3 +226,57 @@ export const getChordSymbol = (symbol: string, isNerdMode: boolean): string => {
 export const getChordGroups = () => Object.keys(CHORDS);
 
 export const getChordVariants = (group: string) => Object.keys(CHORDS[group]);
+
+// Convert semitone intervals to chord formula intervals
+export const getChordFormula = (intervals: number[]): string[] => {
+	const formula: string[] = ['1']; // Always start with root
+	let currentSemitones = 0;
+
+	intervals.forEach(interval => {
+		currentSemitones += interval * 2; // Convert to semitones
+
+		// Map semitones to interval names
+		switch (currentSemitones % 12) {
+			case 0:
+				formula.push('1');
+				break;
+			case 1:
+				formula.push('♭2');
+				break;
+			case 2:
+				formula.push('2');
+				break;
+			case 3:
+				formula.push('♭3');
+				break;
+			case 4:
+				formula.push('3');
+				break;
+			case 5:
+				formula.push('4');
+				break;
+			case 6:
+				formula.push('♭5');
+				break;
+			case 7:
+				formula.push('5');
+				break;
+			case 8:
+				formula.push('♯5');
+				break;
+			case 9:
+				formula.push('6');
+				break;
+			case 10:
+				formula.push('♭7');
+				break;
+			case 11:
+				formula.push('7');
+				break;
+			default:
+				formula.push('?');
+		}
+	});
+
+	return formula;
+};
