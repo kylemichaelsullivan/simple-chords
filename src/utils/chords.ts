@@ -767,7 +767,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[1.5, '♭3', 'solid'],
 				[2, '5', 'dotted'],
 				[1.5, '♭7', 'solid'],
-				[4.5, '♭13', 'double'],
+				[5, '♭13', 'double'],
 			],
 			symbols: ['m7♭13', '–7♭13'],
 		},
