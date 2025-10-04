@@ -110,8 +110,8 @@ select {
 }
 
 .Banjo .AllowedNote,
-.Piano .Key.white .AllowedNote {
-	border-color: #333333;
+.Piano .AllowedNote {
+	border-color: #cccccc;
 }
 
 .Guitar {
