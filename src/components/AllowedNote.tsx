@@ -15,12 +15,12 @@ function AllowedNote({ note, isTonic, borderStyle, isPiano = false }: AllowedNot
 	const verticalPosition = isPiano ? 'bottom-1' : 'bottom-1/2 translate-y-1/2';
 
 	const getBorderClass = (style: border) => {
-		return style === 'none' ? '' : `border-2 border-${style}`;
+		return style === 'none' ? '' : `border-3 border-${style}`;
 	};
 
 	return (
 		<span
-			className={`AllowedNote absolute flex items-center justify-center ${bgColor} rounded-full text-white ${fontSize} h-4 w-4 text-center font-bold leading-none ${verticalPosition} left-1/2 translate-x-[-50%] ${getBorderClass(borderStyle)}${hasFlat ? ' hasFlat' : ''} ${hasSharp ? ' hasSharp' : ''}`}
+			className={`AllowedNote absolute flex items-center justify-center ${bgColor} rounded-full text-white ${fontSize} w-4 h-4 text-center font-bold leading-none ${verticalPosition} left-1/2 translate-x-[-50%] ${getBorderClass(borderStyle)}${hasFlat ? ' hasFlat' : ''} ${hasSharp ? ' hasSharp' : ''} sm:w-6 sm:h-6`}
 			title={note}
 		>
 			{note}

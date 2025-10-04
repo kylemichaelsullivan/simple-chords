@@ -32,7 +32,7 @@ function NotesRow({ notes, noteIndexes }: NotesRowProps) {
 	const { getBorderStyle } = useIndex();
 
 	const getBorderClass = (style: border) => {
-		return style === 'none' ? '' : `border-b-2 border-${style}`;
+		return style === 'none' ? '' : `border-b-3 border-${style}`;
 	};
 
 	return (
