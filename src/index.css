@@ -170,10 +170,6 @@ select {
 }
 
 /* Utility Classes */
-.grid-cols-17 {
-	grid-template-columns: repeat(17, minmax(0, 1fr));
-}
-
 .text-xxs {
 	font-size: 0.675rem;
 }
