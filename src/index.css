@@ -111,7 +111,7 @@ select {
 
 .Banjo .AllowedNote,
 .Piano .AllowedNote {
-	border-color: #cccccc;
+	border-color: oklch(65% 0.20 25);
 }
 
 .Guitar {
