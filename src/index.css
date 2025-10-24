@@ -28,6 +28,10 @@ select {
 	letter-spacing: -0.1875em;
 } */
 
+.ChordFormula .chordNote {
+	border-color: oklch(71.5% 0.143 215.221);
+}
+
 .DisplaysSelector .inactive {
 	color: transparent;
 	text-shadow: 0 0 0 grey;
@@ -106,12 +110,7 @@ select {
 
 /* AllowedNote borders */
 .AllowedNote {
-	border-color: #ffffff;
-}
-
-.Banjo .AllowedNote,
-.Piano .AllowedNote {
-	border-color: oklch(65% 0.20 25);
+	border-color: oklch(86.5% 0.127 207.078);
 }
 
 .Guitar {

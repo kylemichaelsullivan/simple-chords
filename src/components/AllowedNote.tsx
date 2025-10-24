@@ -20,7 +20,7 @@ function AllowedNote({ note, isTonic, borderStyle, isPiano = false }: AllowedNot
 
 	return (
 		<span
-			className={`AllowedNote absolute flex items-center justify-center ${bgColor} rounded-full text-white ${fontSize} w-4 h-4 text-center font-bold leading-none ${verticalPosition} left-1/2 translate-x-[-50%] ${getBorderClass(borderStyle)}${hasFlat ? ' hasFlat' : ''} ${hasSharp ? ' hasSharp' : ''} sm:w-6 sm:h-6`}
+			className={`AllowedNote absolute flex items-center justify-center ${bgColor} rounded-full ring-1 ring-slate-300 text-white ${fontSize} w-4 h-4 text-center font-bold leading-none ${verticalPosition} left-1/2 translate-x-[-50%] ${getBorderClass(borderStyle)}${hasFlat ? ' hasFlat' : ''} ${hasSharp ? ' hasSharp' : ''} sm:w-6 sm:h-6`}
 			title={note}
 		>
 			{note}

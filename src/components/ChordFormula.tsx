@@ -39,7 +39,7 @@ function NotesRow({ notes, noteIndexes }: NotesRowProps) {
 		<div className='grid' style={{ gridTemplateColumns: `repeat(${notes.length}, 1fr)` }}>
 			{notes.map((note, index) => (
 				<div
-					className={`${getBorderClass(getBorderStyle(noteIndexes[index]))} text-sm mx-auto`}
+					className={`chordNote ${getBorderClass(getBorderStyle(noteIndexes[index]))} text-sm mx-auto`}
 					key={`note-${index}`}
 				>
 					{note}
