@@ -15,7 +15,7 @@ function Variant({ variant, onChange }: VariantProps) {
 		<select
 			className='w-full rounded-none border border-slate-500 px-1 hover:ring-1'
 			value={variant}
-			onChange={e => onChange(e.target.value as Chord_Variant)}
+			onChange={(e) => onChange(e.target.value as Chord_Variant)}
 		>
 			{Object.entries(CHORDS).map(([groupName, group]: [string, ChordGroup]) => (
 				<optgroup key={groupName} label={groupName}>

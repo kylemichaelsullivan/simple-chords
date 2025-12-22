@@ -11,11 +11,20 @@ type KeyProps = {
 function Key({ isBlack, note, isAllowed }: KeyProps) {
 	const { getNote, playNote, tonic, getBorderStyle } = useIndex();
 
+	const handleKeyDown = (event: React.KeyboardEvent) => {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			playNote(note);
+		}
+	};
+
 	return (
-		<div
+		<button
+			type='button'
 			className={`Key border border-black ${isBlack ? 'black' : 'white'}`}
 			title={getNote(note)}
 			onClick={() => playNote(note)}
+			onKeyDown={handleKeyDown}
 		>
 			{isAllowed && (
 				<AllowedNote
@@ -25,7 +34,7 @@ function Key({ isBlack, note, isAllowed }: KeyProps) {
 					isPiano={true}
 				/>
 			)}
-		</div>
+		</button>
 	);
 }
 

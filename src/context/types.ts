@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react';
 
 import type {
-	Chord_Tonic,
-	Chord_Variant,
-	Chord_UsingFlats,
 	Chord_NoteCount,
+	Chord_Tonic,
+	Chord_UsingFlats,
+	Chord_Variant,
 	Displays_Icon,
 	border,
 } from '@/types';

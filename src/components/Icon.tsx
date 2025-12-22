@@ -1,8 +1,8 @@
-import keyboardIcon from '/icons/keyboard.svg';
-import guitarIcon from '/icons/guitar.svg';
 import banjoIcon from '/icons/banjo.svg';
-import ukeleleIcon from '/icons/ukelele.svg';
+import guitarIcon from '/icons/guitar.svg';
+import keyboardIcon from '/icons/keyboard.svg';
 import mandolinIcon from '/icons/mandolin.svg';
+import ukeleleIcon from '/icons/ukelele.svg';
 
 import type { Displays_Icon } from '@/types';
 

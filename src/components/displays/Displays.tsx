@@ -1,10 +1,10 @@
 import { useIndex } from '@/hooks/useIndex';
 
-import Piano from './Piano/Piano';
-import Guitar from './Guitar/Guitar';
 import Banjo from './Banjo/Banjo';
-import Ukelele from './Ukelele/Ukelele';
+import Guitar from './Guitar/Guitar';
 import Mandolin from './Mandolin/Mandolin';
+import Piano from './Piano/Piano';
+import Ukelele from './Ukelele/Ukelele';
 
 function Displays() {
 	const { displays } = useIndex();

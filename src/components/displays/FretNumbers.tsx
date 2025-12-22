@@ -6,7 +6,7 @@ function FretNumbers() {
 			{Array.from({ length: 11 }, (_, index) => (
 				<div
 					className={`${dottedFretIndexes.includes(index) ? 'text-black' : 'text-gray-400'} w-full text-center text-xs sm:text-base`}
-					key={index}
+					key={`fret-number-${index + 1}`}
 				>
 					{index + 1}
 				</div>

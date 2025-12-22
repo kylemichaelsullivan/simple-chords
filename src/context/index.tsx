@@ -1,9 +1,9 @@
-import { useState, useEffect, createContext, useCallback, useMemo } from 'react';
+import { createContext, useCallback, useEffect, useMemo, useState } from 'react';
 
-import { FLATS, SHARPS, FREQUENCIES, getChordInfo, getChordSymbol } from '@/utils';
+import { FLATS, FREQUENCIES, SHARPS, getChordInfo, getChordSymbol } from '@/utils';
 
-import type { Chord_Tonic, Chord_Variant, Chord_UsingFlats, Displays_Icon, border } from '@/types';
-import type { IndexContextType, IndexContextProviderProps } from './types';
+import type { Chord_Tonic, Chord_UsingFlats, Chord_Variant, Displays_Icon, border } from '@/types';
+import type { IndexContextProviderProps, IndexContextType } from './types';
 
 const IndexContext = createContext<IndexContextType | undefined>(undefined);
 
@@ -41,16 +41,17 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 	}, []);
 
 	const handleDisplaysClick = useCallback((icon: Displays_Icon) => {
-		setDisplays(prev => {
-			const newDisplays =
-				prev.includes(icon) ? prev.filter(item => item !== icon) : [...prev, icon];
+		setDisplays((prev) => {
+			const newDisplays = prev.includes(icon)
+				? prev.filter((item) => item !== icon)
+				: [...prev, icon];
 			localStorage.setItem('selectedDisplays', JSON.stringify(newDisplays));
 			return newDisplays;
 		});
 	}, []);
 
 	const toggleUsingFlats = useCallback(() => {
-		setUsingFlats(prev => {
+		setUsingFlats((prev) => {
 			const newValue = !prev;
 			localStorage.setItem('usingFlats', JSON.stringify(newValue));
 			return newValue;
@@ -58,7 +59,7 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 	}, []);
 
 	const toggleShowNerdMode = useCallback(() => {
-		setShowNerdMode(prev => {
+		setShowNerdMode((prev) => {
 			const newValue = !prev;
 			localStorage.setItem('showNerdMode', JSON.stringify(newValue));
 			return newValue;
@@ -139,10 +140,10 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 		const chordInfo = getChordInfo(variant);
 		let currentNote = tonic;
 
-		chordInfo.intervals.forEach(([interval]) => {
+		for (const [interval] of chordInfo.intervals) {
 			currentNote = (currentNote + interval * 2) % 12;
 			scaleNotes.push(currentNote);
-		});
+		}
 
 		setNotes(scaleNotes);
 	}, []);

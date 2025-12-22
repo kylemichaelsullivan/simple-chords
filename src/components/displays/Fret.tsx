@@ -9,11 +9,20 @@ type FretProps = {
 function Fret({ note }: FretProps) {
 	const { notes, getNote, playNote, tonic, getBorderStyle } = useIndex();
 
+	const handleKeyDown = (event: React.KeyboardEvent) => {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			playNote(note);
+		}
+	};
+
 	return (
-		<div
+		<button
+			type='button'
 			className='Fret w-full border-r border-black'
 			title={getNote(note)}
 			onClick={() => playNote(note)}
+			onKeyDown={handleKeyDown}
 		>
 			{notes.includes(note) && (
 				<AllowedNote
@@ -22,7 +31,7 @@ function Fret({ note }: FretProps) {
 					borderStyle={getBorderStyle(note)}
 				/>
 			)}
-		</div>
+		</button>
 	);
 }
 

@@ -10,28 +10,29 @@ const ChordName = memo(function ChordName({ chordName }: ChordNameProps) {
 	return (
 		<div className='ChordName col-span-2 border-r border-black font-bold text-md text-center sm:text-lg'>
 			{parts.map((part, index) => {
+				const key = `chord-name-part-${part}-${index}`;
 				if (part === '♭') {
 					return (
-						<span key={index} className='useFlat'>
+						<span key={key} className='useFlat'>
 							{part}
 						</span>
 					);
 				}
 				if (part === '♯') {
 					return (
-						<span key={index} className='useSharp'>
+						<span key={key} className='useSharp'>
 							{part}
 						</span>
 					);
 				}
 				if (/^\d+$/.test(part)) {
 					return (
-						<span key={index} className='number'>
+						<span key={key} className='number'>
 							{part}
 						</span>
 					);
 				}
-				return <span key={index}>{part}</span>;
+				return <span key={key}>{part}</span>;
 			})}
 		</div>
 	);

@@ -1,5 +1,5 @@
-import ShowNerd from './buttons/ShowNerd';
 import Title from './Title';
+import ShowNerd from './buttons/ShowNerd';
 import UsingFlats from './buttons/UsingFlats';
 
 function Header() {

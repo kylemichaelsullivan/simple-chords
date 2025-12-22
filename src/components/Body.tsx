@@ -1,7 +1,7 @@
 import Chord from '@/components/chords/Chord';
-import Notes from '@/components/notes/Notes';
-import DisplaysSelector from '@/components/displays/DisplaysSelector';
 import Displays from '@/components/displays/Displays';
+import DisplaysSelector from '@/components/displays/DisplaysSelector';
+import Notes from '@/components/notes/Notes';
 
 function Body() {
 	return (

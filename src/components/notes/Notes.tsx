@@ -2,8 +2,8 @@ import { memo } from 'react';
 
 import { useIndex } from '@/hooks/useIndex';
 
-import ChordName from './ChordName';
 import ChordFormula from '../ChordFormula';
+import ChordName from './ChordName';
 
 const Notes = memo(function Notes() {
 	const { chordName } = useIndex();

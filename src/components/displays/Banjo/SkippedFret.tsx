@@ -1,5 +1,5 @@
 function SkippedFret() {
-	return <div className='SkippedFret w-full border-b border-orange-300 bg-orange-300'></div>;
+	return <div className='SkippedFret w-full border-b border-orange-300 bg-orange-300' />;
 }
 
 export default SkippedFret;

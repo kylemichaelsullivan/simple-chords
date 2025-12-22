@@ -15,7 +15,7 @@ function IntervalsRow({ intervals }: IntervalsRowProps) {
 	return (
 		<div className='grid' style={{ gridTemplateColumns: `repeat(${intervals.length}, 1fr)` }}>
 			{intervals.map((interval, index) => (
-				<div className={`text-sm font-semibold`} key={`interval-${index}`}>
+				<div className='text-sm font-semibold' key={`interval-${interval}-pos-${index}`}>
 					{interval}
 				</div>
 			))}
@@ -40,7 +40,7 @@ function NotesRow({ notes, noteIndexes }: NotesRowProps) {
 			{notes.map((note, index) => (
 				<div
 					className={`chordNote ${getBorderClass(getBorderStyle(noteIndexes[index]))} text-sm mx-auto`}
-					key={`note-${index}`}
+					key={`note-${note}-${noteIndexes[index]}-pos-${index}`}
 				>
 					{note}
 				</div>
@@ -67,13 +67,13 @@ function ChordFormula({ className }: ChordFormulaProps) {
 		// Calculate the other chord notes based on intervals
 		let currentSemitones = 0;
 
-		chordInfo.intervals.forEach(([interval, label]) => {
+		for (const [interval, label] of chordInfo.intervals) {
 			currentSemitones += interval * 2; // Convert to semitones
 			const noteIndex = (tonic + currentSemitones) % 12;
 			notes.push(getNote(noteIndex));
 			intervalLabels.push(label);
 			noteIndexes.push(noteIndex);
-		});
+		}
 
 		return { notes, intervalLabels, noteIndexes };
 	};
