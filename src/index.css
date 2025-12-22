@@ -46,14 +46,14 @@ select {
 	background-color: var(--fretboard-color);
 }
 
-.String,
+.FretString,
 .DroneString {
 	position: relative;
 	height: 2rem;
 	min-height: 1rem;
 }
 
-.String::after,
+.FretString::after,
 .DroneString::before,
 .DroneString::after {
 	position: absolute;
@@ -62,7 +62,7 @@ select {
 	transform: translateY(-50%);
 }
 
-.String::after,
+.FretString::after,
 .DroneString::after {
 	background-color: silver;
 	width: 100%;
@@ -126,11 +126,11 @@ select {
 	--fretboard-color: #f5f5dc;
 }
 
-.Banjo .String:nth-child(4) .Fret {
+.Banjo .FretString:nth-child(4) .Fret {
 	border-bottom-width: 1px;
 }
 
-.Banjo .String:nth-child(4) .Fret:nth-child(n + 7) {
+.Banjo .FretString:nth-child(4) .Fret:nth-child(n + 7) {
 	border-bottom-width: 0;
 }
 
