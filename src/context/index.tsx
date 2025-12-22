@@ -177,7 +177,7 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 	const chordName = useMemo(() => {
 		const note = getNote(tonic);
 		if (variant === 'major') {
-			return showNerdMode ? note : `${note}△`;
+			return note;
 		}
 		const symbol = getChordSymbol(variant, showNerdMode);
 		return `${note}${symbol}`;

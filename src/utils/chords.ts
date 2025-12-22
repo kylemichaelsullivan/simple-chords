@@ -25,7 +25,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 				[2, '3', 'solid'],
 				[1.5, '5', 'dotted'],
 			],
-			symbols: ['M', '△'],
+			symbols: ['M', 'M'],
 		},
 		minor: {
 			display: 'Minor',
