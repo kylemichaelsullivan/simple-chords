@@ -9,7 +9,7 @@ function FretString({ openNote }: FretStringProps) {
 	const frets = 11;
 
 	return (
-		<div className='String flex justify-evenly'>
+		<div className='FretString flex justify-evenly'>
 			<Nut note={openNote} />
 			{Array.from({ length: frets }, (_, i) => {
 				const note = (openNote + 1 + i) % 12;
