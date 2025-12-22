@@ -29,9 +29,13 @@ select {
 	letter-spacing: -0.1875em;
 } */
 
+.ChordFormula .chordInterval.diminished {
+	letter-spacing: -0.175em;
+}
+
 .ChordFormula .chordNote {
 	border-color: oklch(71.5% 0.143 215.221);
-}
+}	
 
 .DisplaysSelector .inactive {
 	color: transparent;

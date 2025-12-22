@@ -14,8 +14,8 @@ type IntervalsRowProps = {
 function IntervalsRow({ intervals }: IntervalsRowProps) {
 	return (
 		<div className='grid' style={{ gridTemplateColumns: `repeat(${intervals.length}, 1fr)` }}>
-			{intervals.map((interval, index) => (
-				<div className='text-sm font-semibold' key={`interval-${interval}-pos-${index}`}>
+			{intervals.map((interval) => (
+				<div className={`chordInterval text-sm font-semibold ${interval.includes('♭♭') ? 'diminished' : ''}`} key={`interval-${interval}`}>
 					{interval}
 				</div>
 			))}

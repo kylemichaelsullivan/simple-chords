@@ -186,7 +186,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			intervals: [
 				[1.5, '♭3', 'solid'],
 				[1.5, '♭5', 'solid'],
-				[1.5, 'bb7', 'solid'],
+				[1.5, '♭♭7', 'solid'],
 			],
 			symbols: ['dim7', '°7'],
 		},
@@ -295,7 +295,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			intervals: [
 				[1.5, '♭3', 'solid'],
 				[1.5, '♭5', 'solid'],
-				[1.5, 'bb7', 'solid'],
+				[1.5, '♭♭7', 'solid'],
 				[2, '9', 'solid'],
 			],
 			symbols: ['dim9', '°9'],
@@ -392,7 +392,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			intervals: [
 				[1.5, '♭3', 'solid'],
 				[1.5, '♭5', 'solid'],
-				[1.5, 'bb7', 'solid'],
+				[1.5, '♭♭7', 'solid'],
 				[2, '9', 'dashed'],
 				[2, '11', 'solid'],
 			],
@@ -496,7 +496,7 @@ export const CHORDS: Record<string, ChordGroup> = {
 			intervals: [
 				[1.5, '♭3', 'solid'],
 				[1.5, '♭5', 'solid'],
-				[1.5, 'bb7', 'solid'],
+				[1.5, '♭♭7', 'solid'],
 				[2, '9', 'dashed'],
 				[4, '13', 'solid'],
 			],
