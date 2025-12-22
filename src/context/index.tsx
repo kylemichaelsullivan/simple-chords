@@ -1,11 +1,11 @@
-import { createContext, useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { FLATS, FREQUENCIES, SHARPS, getChordInfo, getChordSymbol } from '@/utils';
 
 import type { Chord_Tonic, Chord_UsingFlats, Chord_Variant, Displays_Icon, border } from '@/types';
-import type { IndexContextProviderProps, IndexContextType } from './types';
+import type { IndexContextProviderProps } from './types';
 
-const IndexContext = createContext<IndexContextType | undefined>(undefined);
+import { IndexContext } from './IndexContext';
 
 const initialTonic: Chord_Tonic = 0;
 const initialVariant: Chord_Variant = 'major';
@@ -236,4 +236,5 @@ function IndexContextProvider({ children }: IndexContextProviderProps) {
 	return <IndexContext.Provider value={contextValue}>{children}</IndexContext.Provider>;
 }
 
-export { IndexContext, IndexContextProvider };
+export { IndexContextProvider };
+export { IndexContext } from './IndexContext';
